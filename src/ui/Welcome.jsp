@@ -15,11 +15,8 @@
 <body>
 <div class="row">
  <div class="col-sm-12">
-
-
 <h1>Hi Ranjan How are you  I am fine</h1>
   </div>
-
 </div>
 </body>
 </html>
