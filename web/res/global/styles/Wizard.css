@@ -1,0 +1,60 @@
+.wizard{
+    position: relative;
+    top: 40px;
+}
+.h-line{
+    border: 3px solid #009de4;
+    width: 100%;
+}
+.step{
+    color: white;
+    border-radius: 100px;
+    background: #009de4;
+    width: 30px;
+    height: 30px;
+    top: -11px;
+}
+.step span{
+    position: relative;
+    top: 5px;
+}
+.step:hover{
+    //background: #00adfa;
+    cursor: pointer;
+}
+.content{
+    display: none;
+    position: relative;
+    top: 25px;
+    left: 10px;
+    padding-bottom: 20px;
+
+}
+.wizard-heading{
+    font-size: 22px;
+    color: #006595;
+}
+.wizard-control-box{
+    position: relative;
+    top: 30px;
+    width: auto;
+    height: 30px;
+    /*border: 1px solid #002555;*/
+}
+.wizard-control-box button{
+    background: #009de4;
+    color: white;
+    border: none;
+    padding: 5px;
+    min-width: 80px;
+    border-radius: 4px;
+}
+.wizard-control-box button:hover{
+    background: #00adfa;
+}
+.btn-next{
+    float: right;
+}
+.btn-previous{
+    float: left;
+}

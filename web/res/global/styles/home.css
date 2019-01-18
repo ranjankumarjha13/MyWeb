@@ -1,0 +1,54 @@
+.header{
+    width: 100%;
+    height: 100px;
+    background: #1c8575;
+}
+.title{
+    position: absolute;
+    left: 50px;
+    top: 40px;
+    color: white;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 30px;
+}
+.content{
+    border: 2px solid #1c8575;
+    padding: 10px;
+    position: absolute;
+    top: 110px;
+    left: 10px;
+    width: 96.5%;
+    right: 10px;
+}
+.edit-info{
+    cursor: pointer;
+    color: #1c8575;
+}
+.edit-info:hover{
+    color: #1faf9f;
+}
+.save-edit-btn{
+    border: none;
+    padding: 5px;
+    width: 100%;
+    background: #1c8575;
+    color: white;
+}
+.save-edit-btn:hover{
+    background: #1faf9f;
+}
+.task-pane-area{
+    height: auto;
+    width: 78.5%;
+    padding: 5px;
+    background: rgba(201, 141, 32, 0.27);
+}
+.update-btn{
+    background: coral;
+    width: 20%;
+    color: white;
+    border: none;
+}
+.update-btn:hover{
+    background: rgb(211, 106, 78);
+}

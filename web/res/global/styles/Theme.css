@@ -1,0 +1,478 @@
+
+:root {
+    --primary-color : #35c4f9;
+    --primary-dark-color : #4C4C4C;
+    --primary-text-color : #ffffff; /*menu name color and etc...*/
+    --lite-color : #5C5C5C; /*menu item name color and etc...*/
+    --asset-color : #66afe9; /*border color of selected control and etc...*/
+    --divider-color : #ededed; /*top and button actions separator and short listview item separator...*/
+
+    --grey-color-1 : #333333; /*label color in screens and etc...*/
+    /*--grey-color-2 : #555555; /!*value in oontrol and etc...*!/*/
+    --grey-color-2 : #999; /*placeholder and etc...*/
+    --grey-color-3 : #ccc; /*button border , table border color and border color of  control etc...*/
+    --grey-color-4 : #ddd; /* selected row in table etc..*/
+    --grey-color-5 : #eee; /* highlight row in table etc..*/
+    --grey-color-6 : #DEDFE1;
+    --grey-color-7 : #E7E8EA;
+    --grey-color-8 : #EBEBEB;
+    --grey-color-9 : #EFEFEF;
+    --grey-color-10 : #006699; /*module color*/
+    --grey-color-11 : #414141; /*module color*/
+    --grey-color-12 : #800000; /*module color*/
+
+}
+
+
+
+
+/*@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body
+{
+    font-family:'Open Sans';
+    font-size : 14px;
+}
+table, th, td, div, span {
+    font-family:'Open Sans';
+
+}*/
+
+.urlFont
+{
+    font-size : 16px;
+}
+.navFont
+{
+    font-size : 14px;
+}
+
+
+
+.leftPanel
+{
+    font-size : 15px;
+}
+.panelHighlight
+{
+  font-size: 13px;
+  font-weight: bold;
+}
+.panelExpand
+{
+
+    font-size: 13px;
+    font-weight: normal;
+}
+.sHeaderRow /*gridheader*/
+{
+   height: 35px;
+   color: #ffffff;
+   font-size: 13px;
+   background-color: var(--primary-color);
+}
+
+
+
+.table    /*gridbody*/
+{
+    color:#414141;
+}
+
+.gridIcon
+{
+    height: 15px;
+    width: 15px
+}
+
+.form-control/*textfield*/
+{
+    /*height: 38px;*/
+    /*background-color: #eceded;*/
+    padding-bottom: 2px;
+
+}
+
+/**login*/
+
+.headerFont
+{
+   font-size: 18px;
+   font-weight: normal;
+}
+
+.signIn
+{
+    background-color:#0cb179 ;
+    font-size: 16px;
+    font-weight:500 ;
+}
+
+.hrLine
+{
+    width: 390px;
+    background-color: #cdcdcd;
+    height: 1px;
+}
+
+/**login*/
+
+
+/*Nav Menu**/
+.dropdownHead
+{
+   font-size: 13px;
+   font-weight: 500;
+}
+
+.dropdownBody
+{
+   font-size: 13px;
+   font-weight: normal;
+}
+
+.treeButton
+{
+  height: 32px;
+  width: 135px;
+  background-color: #ebebeb ;
+}
+
+.highLtTreeBt
+{
+   background-color: var(--primary-color);
+}
+.treeIcon
+{
+  background-color: #7b7b7b;
+}
+/*dropdown**/
+
+
+.hightLtPanel
+{
+  background-color: var(--primary-color);
+}
+
+.expenseAmt
+{
+    font-size: 28px;
+}
+
+ /**editView*/
+.tabHeight
+{
+  height: 38px;
+}
+.editViewGrid
+{
+  height: 54px;
+  background-color:#e6e8e9 ;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.tabButton
+{
+    background-color: #efefef;
+}
+
+ /**editView*/
+
+ /**listView*/
+.listView
+{
+    color: #0ea462;
+}
+ /**listView*/
+
+
+
+.btn-default {
+    color: #333;
+    background-color: transparent;
+    border-color: var(--grey-color-6);
+    padding: 4px 8px;
+}
+
+.btn-default:hover {
+    color: #333;
+    background-color: transparent;
+    border-color: #969696;
+    /*padding: 4px 8px;*/
+    /*box-shadow: 0px 0px 1px #969696;*/
+}
+
+
+
+.btn-primary
+{
+    /*margin-right: 12px;*/
+    background-color: #35c5f9;
+    color: #fff;
+    padding: 4px 8px;
+    border-color:#08b7f7;/* #35c5f9*/
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #29A0CC;
+  border-color: #29A0CC;
+    /*box-shadow: 0 0px 0px #29A0CC;*/
+}
+
+
+
+.table-bordered {
+    border: 1px solid var(--divider-color);
+}
+
+
+.table > tbody > tr > td ,.table > thead > tr > td
+{
+    vertical-align: middle;
+    padding: 2px;
+}
+
+.table > tbody > tr > td >.form-control,.table > tbody > tr > td >.form-control:focus
+{
+   border: 0;
+   box-shadow: none;
+}
+.table > tbody > tr > td >input
+{
+    height: 32px;
+}
+
+.loadstatus
+{
+    position:absolute;
+    z-index:111;
+}
+.disableBGImg {
+    position: absolute; /*background: black url(res/images/disable-bg.gif);*/
+    left: 0;
+    top: 0;
+    z-index: 1;
+    opacity: 0.3; /*0.2;*/
+    filter: progid:DXImageTransform.Microsoft.alpha(opacity = 20);
+}
+
+.disableElementBG {
+    position: absolute;
+    background-color:#e5e5e5;
+    opacity: 0.4;
+    filter: progid:DXImageTransform.Microsoft.alpha(opacity = 40);
+}
+.loadingImg
+{
+    background:url("../../global/images/loading.gif") no-repeat center;
+    text-align:center;
+    /* background-color:#ccc;*/
+    /*  background-color: rgba(205,205,205,.3);*/
+    /*-webkit-background-color: rgba(205,205,205,.3);
+    -moz-background-color: rgba(205,205,205,.3);*/
+}
+
+.loadStatusImg
+{
+    background:url("../images/loading.gif") no-repeat center;
+    text-align:center;
+    /*background-color: transparent;*/
+    padding:40px;
+
+    /* background-color:#ccc;*/
+    /*  background-color: rgba(205,205,205,.3);*/
+    /*-webkit-background-color: rgba(205,205,205,.3);
+    -moz-background-color: rgba(205,205,205,.3);*/
+}
+
+
+/*a:focus
+{
+    background:transparent;
+    border:0px solid transparent;
+    color:var(--primary-text-color);
+    /!*background:url(../images/finalTab_left_act.gif) left 0 no-repeat;*!//!*#546953;*!//!*
+    color:var(--primary-text-color);*!/
+    /!*text-decoration:underline;*!/
+    /!*border:1px solid var(--primary-text-color);*!/
+}*/
+
+.toast_def,.toast_defFrom_left,.toast_defFrom_top
+{
+    border:1px solid var(--primary-color);/*#99ff99;*/
+    background-color: var(--primary-color);
+    /*background: -webkit-gradient(linear, left top, left bottom, from(var(--primary-dark-color)), to(var(--lite-color)));*/
+    /*background: -moz-linear-gradient(top,  var(--primary-dark-color),  var(--lite-color));*/
+    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='var(--primary-dark-color)', endColorstr='var(--lite-color)');/*#99ff99*/
+
+
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.4);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.4);
+    box-shadow: 0 1px 2px rgba(0,0,0,.4);
+    z-index:1;
+    color: var(--primary-text-color);
+
+
+    /*background-color: rgba(217, 30, 118, .42);
+    border-radius: 3px;
+    display: block;
+    color: #141414;
+    float: none;
+    margin: 10px 0 0;
+    text-align: left;
+    text-indent: 50px;
+    text-shadow: #333 0 1px 0;
+    z-index: 5;
+    -webkit-transition: width .25s ease-in-out, background-color .25s ease-in-out;
+    -moz-transition: width .25s ease-in-out, background-color .25s ease-in-out;
+    -o-transition: width .25s ease-in-out, background-color .25s ease-in-out;
+    transition: width .25s ease-in-out, background-color .25s ease-in-out;
+    -webkit-box-shadow: rgba(0,0,0, .28) 0 2px 3px;
+    -moz-box-shadow: rgba(0,0,0, .28) 0 2px 3px;
+    -o-box-shadow: rgba(0,0,0, .28) 0 2px 3px;
+    box-shadow: rgba(0,0,0, .28) 0 2px 3px;*/
+
+}
+
+.select
+{
+    /*background-color: #D5D9B8 !important;*/
+    border: 1px solid #5A7A9B;
+    font-family:Verdana, sans-serif;
+    color: var(--grey-color-1);
+    /*color: #333333;*/
+    font-weight:bold;
+}
+
+/*MEGAMENU STYLES*/
+
+.navBackground{
+    background-color: var(--primary-color);
+}
+.navmagmenu
+{
+    background-color: var(--primary-dark-color);
+    border-color: var(--primary-dark-color);
+    /*background-color: #4C4C4C;
+    border-color: #4C4C4C;*/
+}
+.navbar-inverse .navbarmegamenu > li > a
+{
+    color:var(--primary-text-color);
+}
+.mega-dropdown-menu
+{
+
+    /*width: 100%;*/
+    -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    box-shadow:   5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+.mega-dropdown-menu > li ul > li > a:hover,
+.mega-dropdown-menu > li ul > li > a:focus
+{
+    color: var(--primary-color);
+}
+.mega-dropdown-menu > li > ul > li > a
+{
+    color: var(--primary-text-color);
+}
+
+@media (max-width: 767px)
+{
+    .navbar .nav li.dropdown.open.active > .visibleAnchor,
+    .navbar .nav > li.dropdown > a:focus
+    {
+        /*background: inherit;*/
+        background-color: var(--primary-color);
+        color: var(--primary-text-color);
+    }
+
+    .navbar .nav li.dropdown > .visibleAnchor:hover,
+    .navbar .nav li.dropdown.open > .visibleAnchor:hover
+    {
+        background-color: var(--primary-color);
+        color:var(--primary-text-color);
+    }
+
+    .navmagmenu .navbarmegamenu > .open > a, .navmagmenu .navbarmegamenu > .open > a:hover, .navmagmenu .navbarmegamenu > .open > a:focus
+    {
+        background-color:var(--primary-color);
+        color: var(--primary-text-color);
+    }
+    .mega-dropdown-menu .dropdown-header
+    {
+        color: var(--primary-text-color);
+    }
+}
+
+@media (min-width: 1000px)
+{
+    .navmagmenu .open .dropdown-toggle:after,
+    .navmagmenu .open .dropdown-toggle:hover:after
+    {
+        border-bottom: 15px solid #fff;
+    }
+}
+
+@media (min-width: 768px)
+{
+    .navbar .nav li.dropdown.open.active > .visibleAnchor,
+    .navbar .nav > li.dropdown > a:focus
+    {
+        /*background: inherit;*/
+        background-color: var(--primary-color);
+        color: var(--primary-text-color);
+    }
+
+    .navbar .nav li.dropdown > .visibleAnchor:hover,
+    .navbar .nav li.dropdown.open > .visibleAnchor:hover
+    {
+        background-color: var(--primary-color);
+        color:var(--primary-text-color);
+    }
+
+    .mega-dropdown:hover
+    {
+        background-color: var(--primary-color);
+        color:var(--primary-text-color);
+    }
+
+    .navmagmenu .navbarmegamenu > .open > a, .navmagmenu .navbarmegamenu > .open > a:hover, .navmagmenu .navbarmegamenu > .open > a:focus
+    {
+        background-color:var(--primary-color);
+        color: var(--primary-text-color);
+    }
+
+    .mega-dropdown-menu > li > ul > li > a {
+        display: block;
+        color: var(--lite-color);
+        /*color: #5C5C5C;*/
+    }
+
+    .mega-dropdown-menu .dropdown-header {
+        /*font-size: 13px;*/
+        color: var(--primary-dark-color);
+        /*color: #4C4C4C;*/
+    }
+
+    .navbar .nav li.dropdown.open > .dropdown-toggle,
+    .navbar .nav li.dropdown.active > .dropdown-toggle,
+    .navbar .nav li.dropdown.open.active > .dropdown-toggle {
+        /*background: inherit; /!* Set to inherit when using mouse hover to open dropdown *!/*/
+        color: var(--primary-text-color);
+    }
+
+    .dropdown-header-item
+    {
+        color: var(--primary-dark-color);
+        /*color: #4C4C4C;*/
+    }
+}
+
+/*MEGAMENU STYLES*/

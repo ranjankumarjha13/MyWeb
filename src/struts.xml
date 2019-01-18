@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+        <constant name="struts.action.extension" value="do,action"/>
+        <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.custom.i18n.resources" value="input" />
+    <!--    <constant name="struts.devMode" value="true" />-->
+    <constant name="struts.multipart.maxSize" value="1000000" />
+    <package name="default" namespace="/" extends="struts-default" >
+       <action name="viewData" class="com.focus.controller.Maincontroller">
+           <result name="success">/WEB-INF/jsp/ViewDetails.jsp</result>
+       </action>
+        <action name="like" class="com.focus.controller.Maincontroller">
+            <result name="success">/WEB-INF/jsp/likeunlike.jsp</result>
+            <result name="likeunlike">/WEB-INF/jsp/likeunlike.jsp</result>
+        </action>
+        <action name="likeunlike" class="com.focus.controller.Maincontroller">
+            <result name="success">/WEB-INF/jsp/likeunlike.jsp</result>
+        </action>
+        <action name="add" class="com.focus.controller.StudentController">
+            <result name="success">/WEB-INF/jsp/field.jsp</result>
+            <result name="error">/WEB-INF/jsp/field.jsp</result>
+        </action>
+        <action name="view" class="com.focus.controller.StudentController">
+            <result name="success">/WEB-INF/jsp/field.jsp</result>
+            <result name="error">/WEB-INF/jsp/Error.jsp</result>
+        </action>
+        <action name="update" class="com.focus.controller.StudentController">
+            <result name="success">/WEB-INF/jsp/field.jsp</result>
+        </action>
+       <!-- <action name="student" class="com.focus.controller.StudentController">
+        </action>-->
+        <action name="tab1" class="com.focus.controller.TabController">
+            <result name="success">/WEB-INF/jsp/tab1.jsp</result>
+        </action>
+        <action name="tab" class="com.focus.controller.SController">
+            <result name="Succes">/WEB-INF/jsp/stable.jsp</result>
+        </action>
+        <action name="tab2" class="com.focus.controller.SController">
+            <result name="success">/WEB-INF/jsp/stable.jsp</result>
+        </action>
+        <action name="card" class="com.focus.controller.CardController">
+           <result name="success">/WEB-INF/jsp/viewcard.jsp</result>
+        </action>
+        <action name="mobile" class="com.focus.controller.MobileController">
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+            <result name="mobiledetails">/WEB-INF/jsp/viewmobile.jsp</result>
+        </action>
+        <action name="contacts" class="com.focus.controller.MobileController">
+            <result name="contacts">/WEB-INF/jsp/contactsdetails.jsp</result>
+        </action>
+        <action name="call" class="com.focus.controller.MobileController">
+            <result name="call">/WEB-INF/jsp/calling.jsp</result>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </action>
+        <action name="get" class="com.focus.controller.StudentController">
+            <result name="success">/WEB-INF/jsp/getstudntdetails.jsp</result>
+        </action>
+        <action name="send" class="com.focus.controller.StudentController">
+            <result name="success">/WEB-INF/jsp/bootstrap.jsp</result>
+
+        </action>
+        <action name="delete" class="com.focus.controller.StudentController">
+            <result name="success">/WEB-INF/jsp/bootstrap.jsp</result>
+        </action>
+        <action name="json" class="com.focus.controller.TreeController">
+            <result name="getTreeview">/WEB-INF/jsp/json.jsp</result>
+        </action>
+
+    </package>
+</struts>
