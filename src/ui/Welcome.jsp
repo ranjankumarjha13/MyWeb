@@ -9,14 +9,46 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:import url="bootstrapcumjavascriptfile.jsp"/>
 <html>
+<style>
+    .card
+    {
+        border: 1px solid;
+        border-radius: 2em;
+    height: 300px;
+    }
+    .headerr
+    {
+        border: 1px solid;
+        margin: 10px;;
+        height: 40px;;
+    }
+</style>
 <head>
     <title></title>
 </head>
 <body>
 <div class="row">
  <div class="col-sm-12">
-<h1>Hi Ranjan How are you  I am fine</h1>
-  </div>
+   <div class="col-sm-12">
+       <div class="col-sm-4">
+
+       </div>
+       <div class="col-sm-4 card">
+         <div class="headerr">
+
+         </div>
+           <div class="contentt">
+
+           </div>
+           <div class="footerr">
+
+           </div>
+       </div>
+       <div class="col-sm-4">
+
+       </div>
+   </div>
 </div>
+    </div>
 </body>
 </html>
