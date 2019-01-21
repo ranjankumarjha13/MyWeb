@@ -70,6 +70,9 @@
         <action name="json" class="com.focus.controller.TreeController">
             <result name="getTreeview">/WEB-INF/jsp/json.jsp</result>
         </action>
+        <action name="getview" class="com.focus.controller.Navcontroller">
+            <result name="page">/WEB-INF/jsp/angulardocument.jsp</result>
+        </action>
 
     </package>
 </struts>
