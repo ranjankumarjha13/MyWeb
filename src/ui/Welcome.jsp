@@ -37,7 +37,7 @@
   <span style="font-size: 18px;
  font-family: bold;color: #0066FF">TUTORIAL</span>
     <span style="float: right;font-size: 20px;font-family: bold;">
-  <i class="fa fa-chevron-circle-right" onclick="CLNav.getSubmenuitems()" id="rightangle"></i>
+  <i class="fa fa-chevron-circle-right" isDown="false" onclick="CLNav.getSubmenuitems()" id="rightangle" ></i>
          <i class="fa fa-chevron-circle-down" onclick="CLNav.hidesubmenyitem()" id="downangle" style="display: none"></i>
     </span>
     <div class="submenuitem" style="display: none" id="view">
