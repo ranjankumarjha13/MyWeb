@@ -30,21 +30,9 @@
 <body>
 <div class="col-sm-12">
     <div class="col-sm-9">
-
     </div>
-  <%--  <div class="col-sm-3" id="view" style="display: none;">
-      <div class="alert alert-success">
-         <p>Data Posted Successfully!!</p>
-      </div>
-        <div id="dvEditView">
-
-        </div>
-    </div>--%>
 </div>
 <div class="container-fluid">
-
-
-
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -121,7 +109,6 @@
                 </div>
                 </form>
             </div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="ClTab.addstudent()">ADD</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>

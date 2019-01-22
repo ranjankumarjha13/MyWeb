@@ -45,7 +45,6 @@
 
       if(result)
       {
-    /*   var submit=con.formData2QueryString(document.forms["frmAdd"]);*/
 
         alert("success");
       }
@@ -79,73 +78,6 @@
 </div>
 <div align="center" style="padding-top: 20px;">
 <div class="card">
-
- <%-- <FocusTags:STabbedPane id="tp">
-    <FocusTags:SAddTab title="Login">
-     <FocusTags:STableLayout>
-       <FocusTags:STrLayout>
-           <FocusTags:STdLayout>Username</FocusTags:STdLayout>
-         <FocusTags:STdLayout><FocusTags:STextField name="name" id="name" ></FocusTags:STextField></FocusTags:STdLayout>
-         <FocusTags:STdLayout><span id="username"></span></FocusTags:STdLayout>
-       </FocusTags:STrLayout>
-       <FocusTags:STrLayout>
-         <FocusTags:STdLayout>Password</FocusTags:STdLayout>
-         <FocusTags:STdLayout><FocusTags:STextField name="password" id="password"></FocusTags:STextField></FocusTags:STdLayout>
-       </FocusTags:STrLayout>
-       <FocusTags:STrLayout>
-         <FocusTags:STdLayout><input type="button" value="Login" onclick="CLvalidate.checkLoginValidation()"></FocusTags:STdLayout>
-       </FocusTags:STrLayout>
-     </FocusTags:STableLayout>
-    </FocusTags:SAddTab>
-    <FocusTags:SAddTab title="Registration">
-     <FocusTags:STableLayout>
-        <FocusTags:STrLayout>
-          <FocusTags:STdLayout>Name</FocusTags:STdLayout>
-          <FocusTags:STdLayout><FocusTags:STextField name="name1" id="name1"></FocusTags:STextField></FocusTags:STdLayout>
-        </FocusTags:STrLayout>
-       <FocusTags:STrLayout>
-         <FocusTags:STdLayout>Mobile</FocusTags:STdLayout>
-         <FocusTags:STdLayout><FocusTags:STextField name="mobile" id="mobile"></FocusTags:STextField></FocusTags:STdLayout>
-       </FocusTags:STrLayout>
-       <FocusTags:STrLayout>
-         <FocusTags:STdLayout>Email</FocusTags:STdLayout>
-         <FocusTags:STdLayout><FocusTags:STextField name="email" id="email"></FocusTags:STextField></FocusTags:STdLayout>
-       </FocusTags:STrLayout>
-       <FocusTags:STrLayout>
-         <FocusTags:STdLayout>Password</FocusTags:STdLayout>
-         <FocusTags:STdLayout><FocusTags:STextField name="password" id="password"></FocusTags:STextField></FocusTags:STdLayout>
-       </FocusTags:STrLayout>
-       <FocusTags:STrLayout>
-         <FocusTags:STdLayout>ConfirmPassword</FocusTags:STdLayout>
-         <FocusTags:STdLayout><FocusTags:STextField name="cpassowrd" id="cpassowrd"></FocusTags:STextField></FocusTags:STdLayout>
-       </FocusTags:STrLayout>
-       <FocusTags:STrLayout>
-         <FocusTags:STdLayout>City</FocusTags:STdLayout>
-         <FocusTags:STdLayout><FocusTags:STextField name="city" id="city"></FocusTags:STextField></FocusTags:STdLayout>
-       </FocusTags:STrLayout>
-       <FocusTags:STrLayout>
-         <FocusTags:STdLayout><input type="button" value="Signup" onclick="CLvalidate.checkRegistervalidation()"></FocusTags:STdLayout>
-       </FocusTags:STrLayout>
-     </FocusTags:STableLayout>
-    </FocusTags:SAddTab>
-   &lt;%&ndash; <FocusTags:SAddTab title="ViewData">
-      <FocusTags:STable>
-        <FocusTags:SHeader>
-          <FocusTags:SColumn name="fisrt" width="150">
-            <FocusTags:SName>Name</FocusTags:SName>
-          </FocusTags:SColumn>
-          <FocusTags:SColumn name="fisrt" width="150">
-            <FocusTags:SName>Mobile</FocusTags:SName>
-          </FocusTags:SColumn>
-          <FocusTags:SColumn name="fisrt" width="150">
-            <FocusTags:SName>Email</FocusTags:SName>
-          </FocusTags:SColumn>
-
-        </FocusTags:SHeader>
-      </FocusTags:STable>
-
-    </FocusTags:SAddTab>&ndash;%&gt;
-  </FocusTags:STabbedPane>--%>
 </div>
   <div class="container">
     <br/>
@@ -173,33 +105,6 @@
   </div>
 </div>
 </div>
-<%--<h1 align="center" style="color: blue">Welcome To Form Validation Using Javascript</h1>--%>
-<%--<div align="center">
- <button onclick='CLTablejs.addRow()'>Add Row</button>
-  <button onclick='CLTablejs.deleteRow()'>Delete Row</button>
-  <FocusTags:STable id="table1"  specific="border='1'" rows="1" isEditable="true"  createTbody="true" scroll="auto" containerHeight="200" isGenerateSNos="false">
-
-  <FocusTags:SHeader>
-    <FocusTags:SColumn name="fisrt" width="150">
-      <FocusTags:SName>FirstValue</FocusTags:SName>
-    </FocusTags:SColumn>
-
-    <FocusTags:SColumn name="second" width="150">
-      <FocusTags:SName>Second Value</FocusTags:SName>
-    </FocusTags:SColumn>
-    <FocusTags:SColumn name="Result" width="150">
-      <FocusTags:SName >Result</FocusTags:SName>
-    </FocusTags:SColumn>
-  </FocusTags:SHeader>
-    <FocusTags:SRow>
-      <FocusTags:SCell><FocusTags:STextField name="first"  id="value1" onBlur="CLTablejs.addValue()"></FocusTags:STextField></FocusTags:SCell>
-      <FocusTags:SCell><FocusTags:STextField name="first"  id="value2" onBlur="CLTablejs.addValue()"></FocusTags:STextField></FocusTags:SCell>
-      <FocusTags:SCell><FocusTags:STextField name="first" id="value3" onBlur="CLTablejs.addValue()"></FocusTags:STextField></FocusTags:SCell>
-    </FocusTags:SRow>
-  </FocusTags:STable>
-</div>--%>
-
-
 </body>
 <script src="res/scripts/scripts/myscript/Mytable.js"></script>
 

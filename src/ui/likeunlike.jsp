@@ -122,19 +122,6 @@
   </div>
 
 </div>
-<%--<div style="padding: 5px;background-color:#333; ">
- &lt;%&ndash; <div class="col-lg-1">
-
-  </div>&ndash;%&gt;
-  <div class="col-lg-6">
-1
- </div>
-   <div class="col-lg-6">
-     1
-   </div>
-
-
-</div>--%>
 <div class="maindiv">
   <div class="col-sm-3">
     <div style="margin-left: 50px;">

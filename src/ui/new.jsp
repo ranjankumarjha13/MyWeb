@@ -56,10 +56,7 @@
                 document.getElementById("passerror").innerHTML="Name Should not be empty"
                 document.getElementById("addresserror").innerHTML="Name Should not be empty"
                 document.getElementById("ziperror").innerHTML="Name Should not be empty"
-
-
             }
-
         }
     </script>
     <title>Grid</title>
@@ -140,7 +137,6 @@
         <hr>
         <div class="footer">
             <button class="btn btn-primary" >Register</button>
-
         </div>
     </div>
     <div class="col-sm-3">

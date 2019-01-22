@@ -81,9 +81,6 @@
                 <FocusTags:STextField name="formDto.dob" id="dob"/>
               </FocusTags:STdLayout>
             </FocusTags:STrLayout>
-            <%--<FocusTags:STrLayout>
-              <FocusTags:STdLayout> <button class="btn-btn-primary" type="button" onclick="myfunction()">Register</button></FocusTags:STdLayout>
-            </FocusTags:STrLayout>--%>
           </FocusTags:STableLayout>
         </div>
 </FocusTags:STaskPane>
@@ -91,12 +88,8 @@
 <div class="secondTaskPain">
 <FocusTags:STaskPane id="formFeilds" isMandatory="true"  width="100" isCollapsible="true" title="Editable Stable"  specific="style='background-color:pink' disabled='true'">
 <div class="formcotrl" align="center">
-
     <div id="scombo"> </div>
     <c:set var="updaterow" value="<i class='fa fa-edit' onclick='updateRow()' style='font-size:14px;color:brown;'></i>"/>
-    <%--<i class="fa fa-plus" style="font-size: 14px ;color:green;" onclick="addstableRow()">Add Row</i>&nbsp;&nbsp;--%>
-
-
 <FocusTags:STable  id="stable1" border="1" isGenerateSNos="true"  specific="' cellpadding=5" width="50%"  rows="5" isEditable="true"
                    isDynamic="true" scroll="auto">
   <FocusTags:SHeader indexedRowName="formDto.tableDtos">
@@ -136,8 +129,6 @@
     </FocusTags:SColumn>
   </FocusTags:SHeader>
 </FocusTags:STable>
-
-  <%--<input name="formDto.tableDtos[0].name" type="text">--%>
 </form>
 </div>
 </FocusTags:STaskPane>

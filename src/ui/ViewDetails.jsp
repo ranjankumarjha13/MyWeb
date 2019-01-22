@@ -20,10 +20,7 @@
   }
 </style>
 <div class="searchcontainer">
-
-
     <c:forEach items="${data}" var="v">
-
    <div STYLE="padding: 5px" >
        <span id="row-${v.name}">
            ${v.name}
@@ -32,14 +29,10 @@
            ${v.address}
            ${v.zipcode}
        </span>
-
        <a href="#" onclick="CLSearch.response('row-${v.name}')" data-toggle="modal" style="float: right" data-target="#myModal"><i class="fa fa-location-arrow"></i></a>
    </div>
-
     </c:forEach>
-
 </div>
-
 </body>
 <script src="res/scripts/scripts/myscript/search.js"></script>
 <script src="res/scripts/myscript/index.js"></script>
@@ -68,5 +61,4 @@
 <script src="res/scripts/utilities.js"> </script>
 <script src="res/scripts/validation.js"> </script>
 <script src="res/scripts/jquery-2.0.3.js"></script>
-
 </html>

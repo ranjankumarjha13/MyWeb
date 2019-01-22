@@ -29,7 +29,6 @@
     <focustags:SColumn><focustags:SName>DOB</focustags:SName>
     </focustags:SColumn>
   </focustags:SHeader>
- <%-- <c:forEach var="list" items="${requestScope.data}">--%>
   <focustags:SRow>
     <focustags:SCell><focustags:STextField name="name" /> </focustags:SCell>
     <focustags:SCell><focustags:STextField name="age" /> </focustags:SCell>

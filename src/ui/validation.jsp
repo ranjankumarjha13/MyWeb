@@ -199,7 +199,6 @@
                   <a href="#">New Arrival</a>
                 </div>
               </div>
-
           <div class="col-lg-3 col-sm-12 col-md-12 fisrtcard">
             <div class="header">
               <div id="error1" style="color: red">
@@ -255,9 +254,7 @@
                 <tr><td>Address:</td><td><textarea class="form-control"></textarea></td></tr>
               </table>
               <div id="errormsg">
-
               </div>
-
             </div>
             <hr>
             <div class="footer">
@@ -268,10 +265,8 @@
 
             <div class="header">
               <div id="error" style="color: red">
-
               </div>
               <div id="success" style="color: green">
-
               </div>
            <table>
              <tr><td><h3 style="color: darkslategray">Registration Details</h3></td></tr>
@@ -280,7 +275,6 @@
             <hr>
             <div class="content">
              <table>
-
                <tr><td>Name*:</td><td><input type="text" class="form-control" id="name" onblur="nameValidation()"></td><td><span id="namerror" style="color: red;margin-left: 5px"></span></td></tr>
                <tr><td>Mobile*:</td><td><input type="text" class="form-control" id="mobile"></td></tr>
                <tr><td>Email*:</td><td><input type="text" class="form-control" id="email"></td></tr>
@@ -288,7 +282,6 @@
                <tr><td>Zipcode*:</td><td><input type="text" class="form-control" id="zipcode"></td></tr>
                <tr><td>Address*:</td><td><textarea class="form-control" id="textarea" onblur="textValidation()"></textarea></td><td><span id="texterror" style="color: darkred"></span></td></tr>
              </table>
-
             </div>
             <hr>
             <div class="footer">
@@ -300,8 +293,6 @@
         </div>
 <div class="bottomdiv">
   <div class="col-lg-3">
-
-
   </div>
   <center>
   <div class="col-lg-4 col-sm-4 col-md-4">
@@ -316,7 +307,6 @@
     </span>
   </div>
   <div class="col-lg-5">
-
   </div>
   </center>
 </div>
