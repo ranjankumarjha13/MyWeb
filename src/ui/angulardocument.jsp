@@ -9,12 +9,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="bootstrapcumjavascriptfile.jsp"/>
 <html>
-<body>
+<body bgcolor="red">
 <c:set var="o" value="${requestScope.optiondata}"/>
 <c:if test="${o ==1}">
     <div class="row" style="font-family: bold">
-        <div class="col-sm-12" st>
-            <h3><u>Getting started:-</u></h3>
+        <div class="col-sm-12">
+            <h3><u>Getting Started:-</u></h3>
         </div>
         <div class="col-sm-12">
             Welcome to Angular! Angular helps you build modern applications for the web, mobile, or desktop.

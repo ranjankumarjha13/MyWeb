@@ -8,7 +8,6 @@
     <constant name="struts.devMode" value="true" />
     <constant name="struts.i18n.encoding" value="UTF-8"/>
     <constant name="struts.custom.i18n.resources" value="input" />
-    <!--    <constant name="struts.devMode" value="true" />-->
     <constant name="struts.multipart.maxSize" value="1000000" />
     <package name="default" namespace="/" extends="struts-default" >
        <action name="viewData" class="com.focus.controller.Maincontroller">
@@ -32,8 +31,6 @@
         <action name="update" class="com.focus.controller.StudentController">
             <result name="success">/WEB-INF/jsp/field.jsp</result>
         </action>
-       <!-- <action name="student" class="com.focus.controller.StudentController">
-        </action>-->
         <action name="tab1" class="com.focus.controller.TabController">
             <result name="success">/WEB-INF/jsp/tab1.jsp</result>
         </action>
@@ -62,7 +59,6 @@
         </action>
         <action name="send" class="com.focus.controller.StudentController">
             <result name="success">/WEB-INF/jsp/bootstrap.jsp</result>
-
         </action>
         <action name="delete" class="com.focus.controller.StudentController">
             <result name="success">/WEB-INF/jsp/bootstrap.jsp</result>
@@ -73,6 +69,5 @@
         <action name="getview" class="com.focus.controller.Navcontroller">
             <result name="page">/WEB-INF/jsp/angulardocument.jsp</result>
         </action>
-
     </package>
 </struts>
