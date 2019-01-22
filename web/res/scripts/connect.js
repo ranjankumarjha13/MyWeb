@@ -190,7 +190,6 @@ var con=new function()
             {
                 var sResponse = null;
 
-
                 if (responseType==con.RESPONSE_XML)
                     sResponse = xmlHttpReq.responseXML;
                 else
@@ -596,7 +595,6 @@ var con=new function()
     return strSubmitContent;
 };
 
-
     /**
  * Creates URL that can be used to invoke a struts action based on the parameters.
  * @param sNamespace - package namespace without any slashes
@@ -629,7 +627,6 @@ var con=new function()
         }
         return sUrl;
     };
-
     /**
      * Clears form fields' data
      @param form name
@@ -720,7 +717,6 @@ var con=new function()
                      break;
                  }
              }
-
              if(isClearMsgs)
              {
                  if(formElem.className=="mandatoryInput")
@@ -729,8 +725,6 @@ var con=new function()
                  }
              }
          }
-
-
      };
 
     /**
@@ -772,7 +766,6 @@ var con=new function()
              }
          }
     };
-
     function errorHandler(iStatus, sMessage, sText)
     {
       //  alert(iStatus+"::"+sMessage+"::"+sText);
@@ -796,10 +789,8 @@ var con=new function()
             stopResourceLoading();
             initAllCombos = null;
             loadResources(objErrorDiv,util.onScriptsLoad);
-
         }
     }
-
     this.closeErrorDiv=function(objWindow)
     {
         //toggleBackground(false);
@@ -816,7 +807,6 @@ var con=new function()
         catch(e) //added for handling cross-domain security exception
         {   }
     };
-
     this.setResponseAndLoadResources=function(objDiv,sResponse)
     {
         if (window["initAllCombos"])
@@ -1074,7 +1064,6 @@ var con=new function()
 
        // writeToLog(" return *********iActiveCnt="+iActiveCnt);
     }
-
     this.createNanoBar = function(){
         var dvNanoBar = document.getElementById('dvNanoBar');
         if(dvNanoBar && con.clProgressBar == null){
@@ -1089,7 +1078,6 @@ var con=new function()
             cross.getChildren(dvNanoBar)[0].style.float = "none";
         }
     };
-
     this.loadScript=function(sSrc,clInstanceName)
     {
         loadScript(sSrc,clInstanceName,false,null,true);
@@ -1099,7 +1087,6 @@ var con=new function()
     {
         loadScript(sSrc,null,false,null,false);
     };
-
     this.loadScriptAsynchronously=function(sSrc,clInstanceName,fnCallbackOnLoad)
     {
         loadScript(sSrc,clInstanceName,true,fnCallbackOnLoad);

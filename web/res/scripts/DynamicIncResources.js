@@ -1,15 +1,12 @@
 
 
 if(typeof window["loadResources"]!="function")
-{    
-
+{
 var iScriptCount=0;
 var iScriptTotal=0;
 var iStyleCount=0;
 var iStyleTotal=0;
 var iResCount=0;
-
-
 var callBackFnHandler;
 var objResourcesToDelete=[];
 var isLoadInlineScripts=false;

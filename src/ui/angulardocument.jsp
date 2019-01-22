@@ -9,9 +9,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="bootstrapcumjavascriptfile.jsp"/>
 <html>
-<head>
-    <title></title>
-</head>
 <body>
 <c:set var="o" value="${requestScope.optiondata}"/>
 <c:if test="${o ==1}">
@@ -63,7 +60,6 @@
         <div class="col-lg-12" style="margin-left: 60px;">
             1 .Run the CLI command ng new and provide the name my-app, as shown here:
         </div>
-
     </div>
     </c:if>
 <c:if test="${o ==2}">

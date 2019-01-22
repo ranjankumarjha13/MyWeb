@@ -1,3 +1,4 @@
+<%@ taglib prefix="FocusTags" uri="/tlds/fcomps" %>
 <%--
   Created by IntelliJ IDEA.
   User: admin
@@ -69,5 +70,6 @@
 <script src="res/scripts/jquery-2.0.3.js"></script>
 <script src="res/scripts/CommonScripts.js"></script>
 <script src="res/scripts/scripts/ajax.js"></script>
+<script src="res/scripts/DynamicIncResources.js"></script>
 <FocusTags:SOnLoadScript></FocusTags:SOnLoadScript>
 </html>

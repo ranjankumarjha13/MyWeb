@@ -13,12 +13,9 @@
     <title></title>
 </head>
 <body >
-
 <form id="myform">
   <div id="combo">
-
   </div>
-
 <focustags:STable  border="2" altRowColor="" specific="" scroll="true">
   <focustags:SHeader>
     <focustags:SColumn><focustags:SName>Name</focustags:SName>
@@ -45,22 +42,8 @@
       </focustags:SComboBox>
     </focustags:SCell>
     <focustags:SCell><focustags:STextField name="city" /> </focustags:SCell>
-
   </focustags:SRow>
- <%-- </c:forEach>--%>
-  <%--<c:forEach var="student" items="${requestScope.data}">
-    <focustags:SRow >
-      <focustags:SCell>${student.name}</focustags:SCell>
-      <focustags:SCell>${student.age}</focustags:SCell>
-      <focustags:SCell>${student.weight}</focustags:SCell>
-      <focustags:SCell>${student.city}</focustags:SCell>
-     &lt;%&ndash; <FocusTags:SCell>${student.dob}</FocusTags:SCell>&ndash;%&gt;
-    </focustags:SRow>
-  </c:forEach>--%>
-
-
 </focustags:STable>
-
 </form>
 </body>
 <script src="res/scripts/table.js"> </script>

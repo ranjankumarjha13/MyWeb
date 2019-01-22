@@ -5,7 +5,7 @@ var CLNav=new function()
 {
     this.getSubmenuitems=function()
     {
-      document.getElementById("view").style.display="";;
+        document.getElementById("view").style.display="";;
         document.getElementById("rightangle").style.display="none";
         document.getElementById("downangle").style.display="";
     }
@@ -17,6 +17,11 @@ var CLNav=new function()
     }
     this.getdata=function(ioption)
     {
-        callAJAX.sendRequestAJAX("GET","getview!getpage.do?option="+ioption,"viewpage")
+        /*callAJAX.sendRequestAJAX("GET","getview!getpage.do?option="+ioption,"viewpage")*/
+        con.sendGetRequest("getview!getpage.do?option="+ioption,null,null,"CLNav.resHandler");
+
+    }
+    this.resHandler = function(res){
+        document.getElementById("viewpage").innerHTML=res;
     }
 };
