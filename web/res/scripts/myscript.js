@@ -8,9 +8,6 @@ var CLtab=new function()
          var x=tabbedPane.getTabId("pan1");
          alert(x);
          i++;
-        /*tabbedPane.addTab("pan1","Table"+i);*/
-        /*var x=tabbedPane.getDivPosition();*/
-
          var content = document.getElementById("pan1content0").innerHTML;
         tabbedPane.addTab("pan1", "Table" + i);
         return i;

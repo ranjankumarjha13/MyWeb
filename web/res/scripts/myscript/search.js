@@ -9,8 +9,6 @@ var CLSearch=new function()
         if(value.length>0)
      /* callAJAX.sendRequestAJAX("GET","viewData!viewDetails.do?searchValue="+value,"viewdiv");*/
      con.sendGetRequest("viewData!viewDetails.do?searchValue="+value,null,null,"CLSearch.response()");
-
-
         else
         {
             document.getElementById("viewdiv").innerHTML="";
