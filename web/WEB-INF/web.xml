@@ -12,7 +12,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
     <welcome-file-list>
-        <welcome-file>/WEB-INF/jsp/Welcome.jsp</welcome-file>
+        <welcome-file>/WEB-INF/jsp/manulanode.jsp</welcome-file>
     </welcome-file-list>
     <!--E:\MyWebApplication\src\ui\TabExample.jsp-->
   <!--  E:\MyWebApplication\src\ui\stable.jsp-->
