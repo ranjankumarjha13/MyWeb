@@ -82,6 +82,7 @@
   <div id="line"></div>
 <div>
     <script>
+      var lineInfos = [];
       var inital;
       var final;
       var myDiv;
@@ -109,16 +110,15 @@
   function dis(arg,arg1) {
     inital=arg;
     final=arg1;
-
   }
-      function createNode(nodeid)
+      function createNode(parentNodeId)
       {
         ++id;
         myDiv = document.createElement("div");
         myDiv.setAttribute("class","mydiv");
         var ObjI=document.createElement("i");
         ObjI.setAttribute("class","fa fa-plus")
-        ObjI.setAttribute("onclick","createNode()")
+        ObjI.setAttribute("onclick","createNode("+id+")")
         myDiv.setAttribute("class","myDiv");
         myDiv.setAttribute("onmouseover","dragElement(this)");
         myDiv.setAttribute("id",+id);
@@ -129,6 +129,9 @@
         myDiv.appendChild(mydivheader);
         mainDV.appendChild(myDiv);
         myDiv.appendChild(ObjI);
+        var lineinfo=[id,parentNodeId];
+        lineInfos[lineInfos.length]=lineinfo
+        adjustLine();
       }
       function getNodeid(obj)
       {
@@ -138,7 +141,7 @@
         var myDiv = document.createElement("div");
         var ObjI=document.createElement("i");
         ObjI.setAttribute("class","fa fa-plus")
-        ObjI.setAttribute("onclick","createNode()")
+        ObjI.setAttribute("onclick","createNode("+0+")")
         myDiv.setAttribute("class","myDiv");
         myDiv.setAttribute("id",+id);
         myDiv.setAttribute("onmouseover","dragElement(this)");
@@ -177,48 +180,57 @@
           pos4 = e.clientY;
           elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
           elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+          adjustLine();
         }
         function closeDragElement() {
           document.onmouseup = null;
           document.onmousemove = null;
         }
       }
-  function adjustLine(from, to){
-    var line = document.createElement("DIV");
-    line.setAttribute("class","line");
-    document.getElementById("containerDiv").appendChild(line);
-    var fT = from.offsetTop  + from.offsetHeight/2;
-    var tT = to.offsetTop    + to.offsetHeight/2;
-    var fL = from.offsetLeft + from.offsetWidth/2;
-    var tL = to.offsetLeft   + to.offsetWidth/2;
-
-    var CA   = Math.abs(tT - fT);
-    var CO   = Math.abs(tL - fL);
-    var H    = Math.sqrt(CA*CA + CO*CO);
-    var ANG  = 180 / Math.PI * Math.acos( CA/H );
-
-    if(tT > fT){
-      var top  = (tT-fT)/2 + fT;
-    }else{
-      var top  = (fT-tT)/2 + tT;
+  function adjustLine(){
+    var lines = document.getElementsByClassName("line");
+    for(var i=0;i<lines.length;i++){
+      var line = lines [i];
+      mainDV.removeChild(line);
     }
-    if(tL > fL){
-      var left = (tL-fL)/2 + fL;
-    }else{
-      var left = (fL-tL)/2 + tL;
+    for(var i=0;i<lineInfos.length;i++){
+      var lineInfo = lineInfos[i];
+      var from = document.getElementById(lineInfo[0]);
+      var to = document.getElementById(lineInfo[1]);
+      var line = document.createElement("DIV");
+      line.setAttribute("class","line");
+      document.getElementById("containerDiv").appendChild(line);
+      var fT = from.offsetTop  + from.offsetHeight/2;
+      var tT = to.offsetTop    + to.offsetHeight/2;
+      var fL = from.offsetLeft + from.offsetWidth/2;
+      var tL = to.offsetLeft   + to.offsetWidth/2;
+      var CA   = Math.abs(tT - fT);
+      var CO   = Math.abs(tL - fL);
+      var H    = Math.sqrt(CA*CA + CO*CO);
+      var ANG  = 180 / Math.PI * Math.acos( CA/H );
+      if(tT > fT){
+        var top  = (tT-fT)/2 + fT;
+      }else{
+        var top  = (fT-tT)/2 + tT;
+      }
+      if(tL > fL){
+        var left = (tL-fL)/2 + fL;
+      }else{
+        var left = (fL-tL)/2 + tL;
+      }
+      if(( fT < tT && fL < tL) || ( tT < fT && tL < fL) || (fT > tT && fL > 		tL) 		|| (tT > fT && tL > fL)){
+        ANG *= -1;
+      }
+      top-= H/2;
+      line.style["-webkit-transform"] = 'rotate('+ ANG +'deg)';
+      line.style["-moz-transform"] = 'rotate('+ ANG +'deg)';
+      line.style["-ms-transform"] = 'rotate('+ ANG +'deg)';
+      line.style["-o-transform"] = 'rotate('+ ANG +'deg)';
+      line.style["-transform"] = 'rotate('+ ANG +'180)';
+      line.style.top    = top+'px';
+      line.style.left   = left+'px';
+      line.style.height = H + 'px';
     }
-    if(( fT < tT && fL < tL) || ( tT < fT && tL < fL) || (fT > tT && fL > tL) || (tT > fT && tL > fL)){
-      ANG *= -1;
-    }
-    top-= H/2;
-    line.style["-webkit-transform"] = 'rotate('+ ANG +'deg)';
-    line.style["-moz-transform"] = 'rotate('+ ANG +'deg)';
-    line.style["-ms-transform"] = 'rotate('+ ANG +'deg)';
-    line.style["-o-transform"] = 'rotate('+ ANG +'deg)';
-    line.style["-transform"] = 'rotate('+ ANG +'180)';
-    line.style.top    = top+'px';
-    line.style.left   = left+'px';
-    line.style.height = H + 'px';
   }
     </script>
   <h3 style="color: white"><u>Tree Node Example:</u></h3>

@@ -41,8 +41,6 @@
 
 </style>
 <body onload="init()">
-
-
 <div id="containerDiv">
   <div>
     <script>
@@ -56,7 +54,7 @@
         myDiv.setAttribute("onmouseover","dragElement(this)");
         var mydivheader = document.createElement("div");
         mydivheader.setAttribute("class","mydivheader");
-        mydivheader.innerHTML="Focus Softnet";
+        mydivheader.innerHTML="Focus Softnet Pvt Ltd(Root)";
         var addBtn = document.createElement("BUTTON");
         addBtn.innerText = "Add Node";
         addBtn.setAttribute("onclick","createNode('node_"+indexId+"')");
@@ -89,14 +87,11 @@
         if (elmnt) {
           /* if present, the header is where you move the DIV from:*/
           var dv = elmnt.childNodes;
-
-
           dv[0].onmousedown = dragMouseDown;
         } else {
           /* otherwise, move the DIV from anywhere inside the DIV:*/
           elmnt.onmousedown = dragMouseDown;
         }
-
         function dragMouseDown(e) {
           e = e || window.event;
           e.preventDefault();
@@ -105,7 +100,6 @@
           document.onmouseup = closeDragElement;
           document.onmousemove = elementDrag;
         }
-
         function elementDrag(e) {
           e = e || window.event;
           e.preventDefault();
@@ -115,7 +109,6 @@
           pos4 = e.clientY;
           elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
           elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-
           adjustLine();
         }
 
@@ -124,31 +117,23 @@
           document.onmousemove = null;
         }
       }
-
       function adjustLine(){
-
         var lines = document.getElementsByClassName("line");
         for(var i=0;i<lines.length;i++){
           var line = lines [i];
           mainDV.removeChild(line);
         }
         for(var i=0;i<lineInfos.length;i++){
-
           var lineInfo = lineInfos[i];
-
           var from = document.getElementById(lineInfo[0]);
           var to = document.getElementById(lineInfo[1]);
-
           var line = document.createElement("DIV");
           line.setAttribute("class","line");
-
           document.getElementById("containerDiv").appendChild(line);
-
           var fT = from.offsetTop  + from.offsetHeight/2;
           var tT = to.offsetTop    + to.offsetHeight/2;
           var fL = from.offsetLeft + from.offsetWidth/2;
           var tL = to.offsetLeft   + to.offsetWidth/2;
-
           var CA   = Math.abs(tT - fT);
           var CO   = Math.abs(tL - fL);
           var H    = Math.sqrt(CA*CA + CO*CO);
