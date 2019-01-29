@@ -4,13 +4,12 @@
   #nodearea{
     position:absolute; top:20px; left:30px;
     /*border: 1px solid;*/
-    width: auto;
-
+    width: 100%;
   }
   .nodeBox{
     background-color: yellow;
-    height: 100px;
-    width: 100px;
+    height: 60px;
+    width: 60px;
     float: left;
     margin: 40px;
     text-align: center;
@@ -26,18 +25,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script type ="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
   <script type ="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <title>Test</title>
+  <title>Node Example</title>
 </head>
 <body>
+<div style="background-color: black;width:100%">
 <div id="canvas-wrap">
-  <canvas id="c" width="600" height="600"style="border:1px solid #ccc">
+  <canvas id="c" width="1400" height="600"style="border:1px solid #ccc">
   </canvas>
   <div id="nodearea">
-    <hi></hi>
     <button id="draw">Add Link</button>
-    <button id="delete">Delete selected Node)</button>
-    <button onclick="init()">Click</button>
+    <button id="delete">Delete Link</button>
+    <button onclick="init()">AddNode</button>
   </div>
+</div>
 </div>
 <script type="text/javascript">
   function init()
@@ -117,7 +117,6 @@
       });
       canvas.add(line);}
   });
-
   canvas.on('mouse:move', function(o){
     if (!isDown) return;
     var pointer = canvas.getPointer(o.e);
@@ -131,7 +130,8 @@
     isDown = false;
     line.setCoords();
   });
-
+function deleteNodes()
+{}
   // select all objects
   function deleteObjects(){
     var activeObject = canvas.getActiveObject(),
