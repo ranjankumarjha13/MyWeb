@@ -45,7 +45,7 @@
     position:absolute;
     width:2px;
     background-color:navajowhite;
-    border: 2px solid red;
+
   }
   .myDiv {
     position: absolute;
@@ -105,7 +105,6 @@
     var z = prompt("Enter initial Point...");
     var x=prompt("Enter Final Point....")
     if (z != null &&x !=null) {
-
       dis(z,x);
     }
   }
@@ -128,7 +127,7 @@
         var ObjI2=document.createElement("i");
         ObjI2.setAttribute("class","fa fa-trash");
         ObjI2.setAttribute("onclick","deleteNode("+id+")")
-        ObjI2.style.marginLeft="10px";
+        ObjI2.style.marginLeft="15px";
         myDiv.setAttribute("class","myDiv");
         myDiv.setAttribute("onmouseover","dragElement(this)");
         myDiv.setAttribute("id",+id);
@@ -150,11 +149,31 @@
       }
       function deleteNode(pid)
       {
-       alert("Delete Function Called");
+      for(var i=0;i<lineInfos.length;i++)
+      {
+        var lineinfp=lineInfos[i];
+        if(lineinfp[0]==pid)
+        {
+          var x=document.getElementById(pid).childNodes;
+
+          mainDV.removeChild(document.getElementById(pid));
+          mainDV.removeChild(lineinfp[2]);
+          resetIndex(i);
+        }
+      }
+      }
+      function resetIndex(index)
+      {
+        while(index<lineInfos.length)
+        {
+          lineInfos[index]=lineInfos[index+1];
+          index++;
+        }
+        lineInfos.pop();
       }
       function getNodeid(obj)
       {
-       alert("Node Id is"+obj.id);
+      /* alert("Node Id is"+obj.id);*/
       }
       function init(element){
         var myDiv = document.createElement("div");
