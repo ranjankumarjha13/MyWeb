@@ -43,8 +43,9 @@
   }
   .line{
     position:absolute;
-    width:1px;
-    background-color:red;
+    width:2px;
+    background-color:navajowhite;
+    border: 2px solid red;
   }
   .myDiv {
     position: absolute;
@@ -78,6 +79,7 @@
   }
 </style>
 <body onload="init(this)">
+
 <div id="containerDiv">
   <div id="line"></div>
 <div>
@@ -114,11 +116,19 @@
       function createNode(parentNodeId)
       {
         ++id;
+        var pid=document.getElementById(parentNodeId);
         myDiv = document.createElement("div");
         myDiv.setAttribute("class","mydiv");
+        myDiv.setAttribute("onclick","getNodeid(this)");
+        myDiv.style.top=pid.offsetTop+"px";
+        myDiv.style.left=pid.offsetLeft+200+"px";
         var ObjI=document.createElement("i");
         ObjI.setAttribute("class","fa fa-plus")
         ObjI.setAttribute("onclick","createNode("+id+")")
+        var ObjI2=document.createElement("i");
+        ObjI2.setAttribute("class","fa fa-trash");
+        ObjI2.setAttribute("onclick","deleteNode("+id+")")
+        ObjI2.style.marginLeft="10px";
         myDiv.setAttribute("class","myDiv");
         myDiv.setAttribute("onmouseover","dragElement(this)");
         myDiv.setAttribute("id",+id);
@@ -129,16 +139,26 @@
         myDiv.appendChild(mydivheader);
         mainDV.appendChild(myDiv);
         myDiv.appendChild(ObjI);
-        var lineinfo=[id,parentNodeId];
+        myDiv.appendChild(ObjI2);
+        var line=document.createElement("Div");
+        line.setAttribute("class","line");
+        line.setAttribute("onclick","getNodeid(this)")
+        document.getElementById("containerDiv").appendChild(line);
+        var lineinfo=[id,parentNodeId,line];
         lineInfos[lineInfos.length]=lineinfo
         adjustLine();
       }
+      function deleteNode(pid)
+      {
+       alert("Delete Function Called");
+      }
       function getNodeid(obj)
       {
-       /* alert(obj.id);*/
+       alert("Node Id is"+obj.id);
       }
       function init(element){
         var myDiv = document.createElement("div");
+        myDiv.setAttribute("onclick","getNodeid(this)")
         var ObjI=document.createElement("i");
         ObjI.setAttribute("class","fa fa-plus")
         ObjI.setAttribute("onclick","createNode("+0+")")
@@ -153,7 +173,7 @@
         myDiv.appendChild(ObjI);
       }
       function dragElement(elmnt) {
-        getNodeid(this);
+
         var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
         if (elmnt) {
           /* if present, the header is where you move the DIV from:*/
@@ -188,17 +208,11 @@
         }
       }
   function adjustLine(){
-    var lines = document.getElementsByClassName("line");
-    for(var i=0;i<lines.length;i++){
-      var line = lines [i];
-      mainDV.removeChild(line);
-    }
     for(var i=0;i<lineInfos.length;i++){
       var lineInfo = lineInfos[i];
       var from = document.getElementById(lineInfo[0]);
       var to = document.getElementById(lineInfo[1]);
-      var line = document.createElement("DIV");
-      line.setAttribute("class","line");
+      var line = lineInfo[2];
       document.getElementById("containerDiv").appendChild(line);
       var fT = from.offsetTop  + from.offsetHeight/2;
       var tT = to.offsetTop    + to.offsetHeight/2;
@@ -234,7 +248,7 @@
   }
     </script>
   <h3 style="color: white"><u>Tree Node Example:</u></h3>
-    <button onclick="drawLine()">AddLink</button>
+  <%--  <button onclick="drawLine()">AddLink</button>--%>
 </body>
 </html>
 
