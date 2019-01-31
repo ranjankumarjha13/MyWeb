@@ -44,7 +44,7 @@
   .line{
     position:absolute;
     width:2px;
-    background-color:navajowhite;
+    background-color:black;
 
   }
   .myDiv {
@@ -69,20 +69,31 @@
     overflow: scroll;
     position: absolute;
     cancel: '#myinput';
-    background-color: black;;
+   /* background-color: #0066FF;;*/
     overflow-y: auto;
     overflow-x: auto;
   }
+  #arrow
+  {
+   /* border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px;*/
+    position:absolute;
+    top: 59px;
+  }
   input
   {
-   background-color: #2196F3;
+    background-color: #2196F3;
   }
 </style>
 <body onload="init(this)">
 
 <div id="containerDiv">
-  <div id="line"></div>
-<div>
+  <div id="line">
+    <div id="arrow" >hh</div>
+  </div>
+  <div>
     <script>
       var lineInfos = [];
       var inital;
@@ -90,28 +101,27 @@
       var myDiv;
       var mainDV = document.getElementById("containerDiv");
       var id=0;
-  var i= 0,j=1;
-  function drawLine()
-  {
-    display();
-
-    adjustLine(
-            document.getElementById(inital),
-            document.getElementById(final)
-    );
-    j++;
-  }
-  function display() {
-    var z = prompt("Enter initial Point...");
-    var x=prompt("Enter Final Point....")
-    if (z != null &&x !=null) {
-      dis(z,x);
-    }
-  }
-  function dis(arg,arg1) {
-    inital=arg;
-    final=arg1;
-  }
+      var i= 0,j=1;
+      function drawLine()
+      {
+        display();
+        adjustLine(
+                document.getElementById(inital),
+                document.getElementById(final)
+        );
+        j++;
+      }
+      function display() {
+        var z = prompt("Enter initial Point...");
+        var x=prompt("Enter Final Point....")
+        if (z != null &&x !=null) {
+          dis(z,x);
+        }
+      }
+      function dis(arg,arg1) {
+        inital=arg;
+        final=arg1;
+      }
       function createNode(parentNodeId)
       {
         ++id;
@@ -139,28 +149,37 @@
         mainDV.appendChild(myDiv);
         myDiv.appendChild(ObjI);
         myDiv.appendChild(ObjI2);
+        var arrow=document.createElement("DIV");
+        arrow.setAttribute("id","arrow");
+        var img = document.createElement("IMG");
+        img.setAttribute("src","https://cdn0.iconfinder.com/data/icons/glyphpack/26/nav-arrow-up-128.png");
+        img.setAttribute("width", "21");
+        img.setAttribute("height", "45");
+        img.setAttribute("style","margin-left: -9px");
+        arrow.appendChild(img);
         var line=document.createElement("Div");
         line.setAttribute("class","line");
         line.setAttribute("onclick","getNodeid(this)")
         document.getElementById("containerDiv").appendChild(line);
+        line.appendChild(arrow)
         var lineinfo=[id,parentNodeId,line];
         lineInfos[lineInfos.length]=lineinfo
         adjustLine();
       }
       function deleteNode(pid)
       {
-      for(var i=0;i<lineInfos.length;i++)
-      {
-        var lineinfp=lineInfos[i];
-        if(lineinfp[0]==pid)
+        for(var i=0;i<lineInfos.length;i++)
         {
-          var x=document.getElementById(pid).childNodes;
 
-          mainDV.removeChild(document.getElementById(pid));
-          mainDV.removeChild(lineinfp[2]);
-          resetIndex(i);
+          var lineinfp=lineInfos[i];
+          if(lineinfp[0]==pid)
+          {
+            var x=document.getElementById(pid).childNodes;
+            mainDV.removeChild(document.getElementById(pid));
+            mainDV.removeChild(lineinfp[2]);
+            resetIndex(i);
+          }
         }
-      }
       }
       function resetIndex(index)
       {
@@ -169,11 +188,10 @@
           lineInfos[index]=lineInfos[index+1];
           index++;
         }
-        lineInfos.pop();
       }
       function getNodeid(obj)
       {
-      /* alert("Node Id is"+obj.id);*/
+        //alert("Node Id is"+obj.id);
       }
       function init(element){
         var myDiv = document.createElement("div");
@@ -226,48 +244,54 @@
           document.onmousemove = null;
         }
       }
-  function adjustLine(){
-    for(var i=0;i<lineInfos.length;i++){
-      var lineInfo = lineInfos[i];
-      var from = document.getElementById(lineInfo[0]);
-      var to = document.getElementById(lineInfo[1]);
-      var line = lineInfo[2];
-      document.getElementById("containerDiv").appendChild(line);
-      var fT = from.offsetTop  + from.offsetHeight/2;
-      var tT = to.offsetTop    + to.offsetHeight/2;
-      var fL = from.offsetLeft + from.offsetWidth/2;
-      var tL = to.offsetLeft   + to.offsetWidth/2;
-      var CA   = Math.abs(tT - fT);
-      var CO   = Math.abs(tL - fL);
-      var H    = Math.sqrt(CA*CA + CO*CO);
-      var ANG  = 180 / Math.PI * Math.acos( CA/H );
-      if(tT > fT){
-        var top  = (tT-fT)/2 + fT;
-      }else{
-        var top  = (fT-tT)/2 + tT;
+      function adjustLine(){
+        for(var i=0;i<lineInfos.length;i++){
+          var lineInfo = lineInfos[i];
+          var from = document.getElementById(lineInfo[0]);
+          var to = document.getElementById(lineInfo[1]);
+          var line = lineInfo[2];
+          document.getElementById("containerDiv").appendChild(line);
+          var fT = from.offsetTop  + from.offsetHeight/2;
+          var tT = to.offsetTop    + to.offsetHeight/2;
+          var fL = from.offsetLeft + from.offsetWidth/2;
+          var tL = to.offsetLeft   + to.offsetWidth/2;
+          var CA   = Math.abs(tT - fT);
+          var CO   = Math.abs(tL - fL);
+          var H    = Math.sqrt(CA*CA + CO*CO);
+          var ANG  = 180 / Math.PI * Math.acos( CA/H );
+          if(tT > fT){
+            var top  = (tT-fT)/2 + fT;
+          }else{
+            var top  = (fT-tT)/2 + tT;
+          }
+          if(tL > fL){
+            var left = (tL-fL)/2 + fL;
+          }else{
+            var left = (fL-tL)/2 + tL;
+          }
+          if(( fT < tT && fL < tL) || ( tT < fT && tL < fL) || (fT > tT && fL > 		tL) 		|| (tT > fT && tL > fL)){
+            ANG *= -1;
+          }
+          top-= H/2;
+          line.style["-webkit-transform"] = 'rotate('+ ANG +'deg)';
+          line.style["-moz-transform"] = 'rotate('+ ANG +'deg)';
+          line.style["-ms-transform"] = 'rotate('+ ANG +'deg)';
+          line.style["-o-transform"] = 'rotate('+ ANG +'deg)';
+          line.style["-transform"] = 'rotate('+ ANG +'180)';
+          line.style.top    = top+'px';
+          line.style.left   = left+'px';
+          line.style.height = H + 'px';
+          arrow.style["-webkit-transform"] = 'rotate('+ ANG +'deg)';
+          arrow.style["-moz-transform"] = 'rotate('+ ANG +'deg)';
+          arrow.style["-ms-transform"] = 'rotate('+ ANG +'deg)';
+          arrow.style["-o-transform"] = 'rotate('+ ANG +'deg)';
+          arrow.style["-transform"] = 'rotate('+ ANG +'180)';
+
+        }
       }
-      if(tL > fL){
-        var left = (tL-fL)/2 + fL;
-      }else{
-        var left = (fL-tL)/2 + tL;
-      }
-      if(( fT < tT && fL < tL) || ( tT < fT && tL < fL) || (fT > tT && fL > 		tL) 		|| (tT > fT && tL > fL)){
-        ANG *= -1;
-      }
-      top-= H/2;
-      line.style["-webkit-transform"] = 'rotate('+ ANG +'deg)';
-      line.style["-moz-transform"] = 'rotate('+ ANG +'deg)';
-      line.style["-ms-transform"] = 'rotate('+ ANG +'deg)';
-      line.style["-o-transform"] = 'rotate('+ ANG +'deg)';
-      line.style["-transform"] = 'rotate('+ ANG +'180)';
-      line.style.top    = top+'px';
-      line.style.left   = left+'px';
-      line.style.height = H + 'px';
-    }
-  }
     </script>
-  <h3 style="color: white"><u>Tree Node Example:</u></h3>
-  <%--  <button onclick="drawLine()">AddLink</button>--%>
+    <h3 style="color: white"><u>Tree Node Example:</u></h3>
+    <%--  <button onclick="drawLine()">AddLink</button>--%>
 </body>
 </html>
 
