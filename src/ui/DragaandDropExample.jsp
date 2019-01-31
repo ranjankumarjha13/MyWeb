@@ -44,7 +44,7 @@
   .line{
     position:absolute;
     width:2px;
-    background-color:black;
+    background-color:wheat;
 
   }
   .myDiv {
@@ -69,7 +69,7 @@
     overflow: scroll;
     position: absolute;
     cancel: '#myinput';
-   /* background-color: #0066FF;;*/
+    background-color: black;
     overflow-y: auto;
     overflow-x: auto;
   }
@@ -82,6 +82,12 @@
     position:absolute;
     top: 59px;
   }
+  #icircle
+  {
+    position:absolute;
+    top: 100px;
+    color: blueviolet;
+  }
   input
   {
     background-color: #2196F3;
@@ -92,6 +98,7 @@
 <div id="containerDiv">
   <div id="line">
     <div id="arrow" >hh</div>
+    <div id="icircle">circle</div>
   </div>
   <div>
     <script>
@@ -152,7 +159,7 @@
         var arrow=document.createElement("DIV");
         arrow.setAttribute("id","arrow");
         var img = document.createElement("IMG");
-        img.setAttribute("src","https://cdn0.iconfinder.com/data/icons/glyphpack/26/nav-arrow-up-128.png");
+        img.setAttribute("src","https://cdn1.iconfinder.com/data/icons/fs-icons-ubuntu-by-franksouza-/128/go-up.png");
         img.setAttribute("width", "21");
         img.setAttribute("height", "45");
         img.setAttribute("style","margin-left: -9px");
@@ -161,7 +168,15 @@
         line.setAttribute("class","line");
         line.setAttribute("onclick","getNodeid(this)")
         document.getElementById("containerDiv").appendChild(line);
-        line.appendChild(arrow)
+        line.appendChild(arrow);
+        var icircle=document.createElement("Div");
+        icircle.setAttribute("id","icircle");
+       var ic=document.createElement("i");
+        ic.setAttribute("class","fa fa-circle");
+        ic.setAttribute("onclick","getDetails(this)")
+        icircle.appendChild(ic);
+        line.appendChild(icircle);
+        icircle.style.marginLeft="-6px";
         var lineinfo=[id,parentNodeId,line];
         lineInfos[lineInfos.length]=lineinfo
         adjustLine();
@@ -189,10 +204,10 @@
           index++;
         }
       }
-      function getNodeid(obj)
-      {
-        //alert("Node Id is"+obj.id);
-      }
+     function getDetails(obj)
+     {
+       alert("function for details")
+     }
       function init(element){
         var myDiv = document.createElement("div");
         myDiv.setAttribute("onclick","getNodeid(this)")
@@ -238,6 +253,7 @@
           elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
           elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
           adjustLine();
+
         }
         function closeDragElement() {
           document.onmouseup = null;
@@ -252,10 +268,15 @@
           var line = lineInfo[2];
           document.getElementById("containerDiv").appendChild(line);
           var fT = from.offsetTop  + from.offsetHeight/2;
+         /*alert("From Top"+fT)*/
           var tT = to.offsetTop    + to.offsetHeight/2;
+         /* alert("To Top"+tT)*/
           var fL = from.offsetLeft + from.offsetWidth/2;
+          /*alert("From Left"+fL)*/
           var tL = to.offsetLeft   + to.offsetWidth/2;
+         /* alert("To Left"+tL)*/
           var CA   = Math.abs(tT - fT);
+
           var CO   = Math.abs(tL - fL);
           var H    = Math.sqrt(CA*CA + CO*CO);
           var ANG  = 180 / Math.PI * Math.acos( CA/H );
@@ -281,11 +302,6 @@
           line.style.top    = top+'px';
           line.style.left   = left+'px';
           line.style.height = H + 'px';
-          arrow.style["-webkit-transform"] = 'rotate('+ ANG +'deg)';
-          arrow.style["-moz-transform"] = 'rotate('+ ANG +'deg)';
-          arrow.style["-ms-transform"] = 'rotate('+ ANG +'deg)';
-          arrow.style["-o-transform"] = 'rotate('+ ANG +'deg)';
-          arrow.style["-transform"] = 'rotate('+ ANG +'180)';
 
         }
       }
