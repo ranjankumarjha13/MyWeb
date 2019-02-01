@@ -9,43 +9,23 @@
   <script type ="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </header>
 <style>
-  #content{
-    position:relative;
-  }
-  .mydiv{
-    border:1px solid #368ABB;
-    background-color:#43A4DC;
-    position:absolute;;
-  }
-  .mydiv:after{
-    content:no-close-quote;
-    position:absolute;
-    top:50%;
-    left:50%;
-    background-color:black;
-    width:4px;
-    height:4px;
-    border-radius:50%;
-    margin-left:-20px;
-    margin-top:-2px;
-  }
-  #div1{
-    left:200px;
-    top:200px;
-    width:50px;
-    height:50px;
-  }
-  #div2{
-    left:20px;
-    top:20px;
-    width:50px;
-    height:40px;
-  }
+   .icircle:hover{
+     background-color: red;
+   }
+   #line:hover
+   {
+
+     background-color: wheat;
+   }
+   .fa-circle:hover
+   {
+     background-color: blue;;
+   }
   .line{
     position:absolute;
     width:2px;
     background-color:wheat;
-
+    text-align: center;
   }
   .myDiv {
     position: absolute;
@@ -53,6 +33,7 @@
     background-color: #f1f1f1;
     text-align: center;
     border: 1px solid #d3d3d3;
+    border-radius: 5em;;
   }
   .mydivheader {
     padding: 5px;
@@ -60,55 +41,55 @@
     z-index: 10;
     background-color: #2196F3;
     color: #fff;
-    width: 100px;
+    width: 110px;
+    height: 90px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5em;;
   }
-  #containerDiv{
+  #containerDiv {
     height: 100%;
     width: 100%;
-    border : 1px solid;
+    border: 1px solid;
     overflow: scroll;
     position: absolute;
     cancel: '#myinput';
-    background-color: black;
+    background-color: #5A7A9B;
     overflow-y: auto;
     overflow-x: auto;
   }
   #arrow
   {
-   /* border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 5px;*/
     position:absolute;
-    top: 59px;
+    top: 55px;
   }
   #icircle
   {
     position:absolute;
     top: 100px;
-    color: blueviolet;
+    color: green;
   }
   input
   {
     background-color: #2196F3;
   }
+  img
+  {
+    transform: rotate(267deg);
+  }
 </style>
 <body onload="init(this)">
-
 <div id="containerDiv">
-  <div id="line">
-    <div id="arrow" >hh</div>
-    <div id="icircle">circle</div>
+  <div class="line">
+    <div id="arrow" ></div>
+    <div id="icircle"></div>
   </div>
   <div>
     <script>
       var lineInfos = [];
       var inital;
       var final;
-      var myDiv;
       var mainDV = document.getElementById("containerDiv");
       var id=0;
-      var i= 0,j=1;
       function drawLine()
       {
         display();
@@ -116,7 +97,6 @@
                 document.getElementById(inital),
                 document.getElementById(final)
         );
-        j++;
       }
       function display() {
         var z = prompt("Enter initial Point...");
@@ -133,9 +113,65 @@
       {
         ++id;
         var pid=document.getElementById(parentNodeId);
-        myDiv = document.createElement("div");
-        myDiv.setAttribute("class","mydiv");
+        var myDiv = document.createElement("div");
         myDiv.setAttribute("onclick","getNodeid(this)");
+        myDiv.style.top=pid.offsetTop+"px";
+        myDiv.style.left=pid.offsetLeft+200+"px";
+        var ObjI=document.createElement("i");
+        var ObjI=document.createElement("i");
+        ObjI.setAttribute("class","fa fa-plus")
+        ObjI.setAttribute("onclick","createNode("+id+")")
+        var ObjI2=document.createElement("i");
+        ObjI2.setAttribute("class","fa fa-trash");
+        ObjI2.setAttribute("onclick","deleteNode("+id+")")
+        ObjI2.style.marginLeft="15px";
+        myDiv.setAttribute("class","myDiv");
+        myDiv.setAttribute("onmouseover","dragElement(this)");
+        myDiv.setAttribute("id",+id);
+        myDiv.setAttribute("onmouseover","dragElement(this)");
+        var mydivheader = document.createElement("div");
+        mydivheader.setAttribute("class","mydivheader");
+        mydivheader.innerHTML="Focus(Root)";
+        myDiv.appendChild(mydivheader);
+        mainDV.appendChild(myDiv);
+        myDiv.appendChild(ObjI);
+        myDiv.appendChild(mydivheader);
+        mainDV.appendChild(myDiv);
+        myDiv.appendChild(ObjI);
+        myDiv.appendChild(ObjI2);
+        var arrow=document.createElement("DIV");
+        arrow.setAttribute("id","arrow");
+        var img = document.createElement("IMG");
+        img.setAttribute("src","https://cdn2.iconfinder.com/data/icons/bold-ui/100/right-128.png");
+        img.setAttribute("width", "50");
+        img.setAttribute("height", "30");
+        img.setAttribute("style","transform: rotate(267deg)");
+        img.setAttribute("style","margin-left: -23px");
+        arrow.appendChild(img);
+        var line=document.createElement("Div");
+        line.setAttribute("class","line");
+        line.setAttribute("id","line_"+parentNodeId+"_"+id);
+        line.setAttribute("onclick","getNodeid(this)")
+        document.getElementById("containerDiv").appendChild(line);
+        line.appendChild(arrow);
+        var icircle=document.createElement("Div");
+        icircle.setAttribute("id","icircle");
+        var ic=document.createElement("i");
+        ic.setAttribute("class","fa fa-circle");
+        ic.setAttribute("onclick","getDetails(this)")
+        icircle.appendChild(ic);
+        line.appendChild(icircle);
+        icircle.style.marginLeft="-6px";
+        var lineinfo=[id,parentNodeId,line];
+        lineInfos[lineInfos.length]=lineinfo
+        adjustLine();
+
+
+
+
+      /*  var pid=document.getElementById(parentNodeId);
+        var myDiv = document.createElement("div");
+        myDiv.setAttribute("class","mydiv");
         myDiv.style.top=pid.offsetTop+"px";
         myDiv.style.left=pid.offsetLeft+200+"px";
         var ObjI=document.createElement("i");
@@ -165,13 +201,13 @@
         img.setAttribute("style","margin-left: -9px");
         arrow.appendChild(img);
         var line=document.createElement("Div");
-        line.setAttribute("class","line");
+        line.setAttribute("id","line");
         line.setAttribute("onclick","getNodeid(this)")
         document.getElementById("containerDiv").appendChild(line);
         line.appendChild(arrow);
         var icircle=document.createElement("Div");
         icircle.setAttribute("id","icircle");
-       var ic=document.createElement("i");
+        var ic=document.createElement("i");
         ic.setAttribute("class","fa fa-circle");
         ic.setAttribute("onclick","getDetails(this)")
         icircle.appendChild(ic);
@@ -179,13 +215,12 @@
         icircle.style.marginLeft="-6px";
         var lineinfo=[id,parentNodeId,line];
         lineInfos[lineInfos.length]=lineinfo
-        adjustLine();
+        adjustLine();*/
       }
       function deleteNode(pid)
       {
         for(var i=0;i<lineInfos.length;i++)
         {
-
           var lineinfp=lineInfos[i];
           if(lineinfp[0]==pid)
           {
@@ -206,7 +241,13 @@
       }
      function getDetails(obj)
      {
-       alert("function for details")
+       var parentObj = obj.parentNode;
+       var parentObj = parentObj.parentNode;
+       var lineId = parentObj.id;
+       var arr = lineId.split("_");
+       parentId = arr[1];
+       childId = arr[2];
+       alert("Parent Id is"+" "+"["+parentId +"]"+"  "+"And Chld Id is"+"   "+childId)
      }
       function init(element){
         var myDiv = document.createElement("div");
@@ -219,13 +260,12 @@
         myDiv.setAttribute("onmouseover","dragElement(this)");
         var mydivheader = document.createElement("div");
         mydivheader.setAttribute("class","mydivheader");
-        mydivheader.innerHTML="Focus Softnet (Root)";
+        mydivheader.innerHTML="Focus (Root)";
         myDiv.appendChild(mydivheader);
         mainDV.appendChild(myDiv);
         myDiv.appendChild(ObjI);
       }
       function dragElement(elmnt) {
-
         var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
         if (elmnt) {
           /* if present, the header is where you move the DIV from:*/
@@ -253,7 +293,6 @@
           elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
           elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
           adjustLine();
-
         }
         function closeDragElement() {
           document.onmouseup = null;
@@ -276,7 +315,6 @@
           var tL = to.offsetLeft   + to.offsetWidth/2;
          /* alert("To Left"+tL)*/
           var CA   = Math.abs(tT - fT);
-
           var CO   = Math.abs(tL - fL);
           var H    = Math.sqrt(CA*CA + CO*CO);
           var ANG  = 180 / Math.PI * Math.acos( CA/H );
@@ -302,12 +340,10 @@
           line.style.top    = top+'px';
           line.style.left   = left+'px';
           line.style.height = H + 'px';
-
         }
       }
     </script>
     <h3 style="color: white"><u>Tree Node Example:</u></h3>
-    <%--  <button onclick="drawLine()">AddLink</button>--%>
 </body>
 </html>
 
