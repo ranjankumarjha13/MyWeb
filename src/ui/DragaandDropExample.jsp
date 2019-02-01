@@ -17,15 +17,17 @@
 
      background-color: wheat;
    }
-   .fa-circle:hover
+   .fa-info-circle:hover
    {
-     background-color: blue;;
+     background-color: white ;;
+     transition: width 5s;
    }
   .line{
     position:absolute;
     width:2px;
     background-color:wheat;
     text-align: center;
+
   }
   .myDiv {
     position: absolute;
@@ -33,7 +35,7 @@
     background-color: #f1f1f1;
     text-align: center;
     border: 1px solid #d3d3d3;
-    border-radius: 5em;;
+    border-radius: 4em;;
   }
   .mydivheader {
     padding: 5px;
@@ -44,7 +46,7 @@
     width: 110px;
     height: 90px;
     border: 1px solid #d3d3d3;
-    border-radius: 5em;;
+    border-radius: 4em;;
   }
   #containerDiv {
     height: 100%;
@@ -65,8 +67,8 @@
   #icircle
   {
     position:absolute;
-    top: 100px;
-    color: green;
+    top: 150px;
+    color: white;
   }
   input
   {
@@ -90,6 +92,10 @@
       var final;
       var mainDV = document.getElementById("containerDiv");
       var id=0;
+      function calculateNumberofnodes()
+      {
+        document.getElementById("numberofnode").innerHTML=id+1;
+      }
       function drawLine()
       {
         display();
@@ -116,13 +122,13 @@
         var myDiv = document.createElement("div");
         myDiv.setAttribute("onclick","getNodeid(this)");
         myDiv.style.top=pid.offsetTop+"px";
-        myDiv.style.left=pid.offsetLeft+200+"px";
+        myDiv.style.left=pid.offsetLeft+300+"px";
         var ObjI=document.createElement("i");
         var ObjI=document.createElement("i");
         ObjI.setAttribute("class","fa fa-plus")
         ObjI.setAttribute("onclick","createNode("+id+")")
         var ObjI2=document.createElement("i");
-        ObjI2.setAttribute("class","fa fa-trash");
+        ObjI2.setAttribute("class","fa fa-cut");
         ObjI2.setAttribute("onclick","deleteNode("+id+")")
         ObjI2.style.marginLeft="15px";
         myDiv.setAttribute("class","myDiv");
@@ -131,7 +137,7 @@
         myDiv.setAttribute("onmouseover","dragElement(this)");
         var mydivheader = document.createElement("div");
         mydivheader.setAttribute("class","mydivheader");
-        mydivheader.innerHTML="Focus(Root)";
+        mydivheader.innerHTML="Child Id"+":"+id;
         myDiv.appendChild(mydivheader);
         mainDV.appendChild(myDiv);
         myDiv.appendChild(ObjI);
@@ -157,7 +163,7 @@
         var icircle=document.createElement("Div");
         icircle.setAttribute("id","icircle");
         var ic=document.createElement("i");
-        ic.setAttribute("class","fa fa-circle");
+        ic.setAttribute("class","fa fa-info-circle");
         ic.setAttribute("onclick","getDetails(this)")
         icircle.appendChild(ic);
         line.appendChild(icircle);
@@ -165,9 +171,7 @@
         var lineinfo=[id,parentNodeId,line];
         lineInfos[lineInfos.length]=lineinfo
         adjustLine();
-
-
-
+        calculateNumberofnodes();
 
       /*  var pid=document.getElementById(parentNodeId);
         var myDiv = document.createElement("div");
@@ -247,7 +251,7 @@
        var arr = lineId.split("_");
        parentId = arr[1];
        childId = arr[2];
-       alert("Parent Id is"+" "+"["+parentId +"]"+"  "+"And Chld Id is"+"   "+childId)
+       alert("Parent Id is"+"="+"   "+""+parentId +""+"  "+"And Chld Id is"+"="+"   "+""+childId+"  ")
      }
       function init(element){
         var myDiv = document.createElement("div");
@@ -260,10 +264,11 @@
         myDiv.setAttribute("onmouseover","dragElement(this)");
         var mydivheader = document.createElement("div");
         mydivheader.setAttribute("class","mydivheader");
-        mydivheader.innerHTML="Focus (Root)";
+        mydivheader.innerHTML="Root Id"+":"+id;
         myDiv.appendChild(mydivheader);
         mainDV.appendChild(myDiv);
         myDiv.appendChild(ObjI);
+        calculateNumberofnodes();
       }
       function dragElement(elmnt) {
         var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -337,13 +342,18 @@
           line.style["-ms-transform"] = 'rotate('+ ANG +'deg)';
           line.style["-o-transform"] = 'rotate('+ ANG +'deg)';
           line.style["-transform"] = 'rotate('+ ANG +'180)';
+         /* document.getElementById("gg").innerHTML=line.style.transform;*/
           line.style.top    = top+'px';
           line.style.left   = left+'px';
           line.style.height = H + 'px';
         }
       }
     </script>
-    <h3 style="color: white"><u>Tree Node Example:</u></h3>
+    <h2  style="color: white"><u>Tree Node Example:</u></h2>
+   <div  style="font-size: 20px;color: white;float: right;margin: 20px;">
+     <span><u>Total Number of  Node is::</u></span>
+     <span id="numberofnode"></span>
+   </div>
 </body>
 </html>
 
