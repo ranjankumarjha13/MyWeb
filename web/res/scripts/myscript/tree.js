@@ -10,12 +10,16 @@ var id=0;
 function init(element){
     //this div is crated at the time of loading
     var myDiv = document.createElement("div");
+    var hovericon=document.createElement("DIV");
+
+    hovericon.setAttribute("class","edit");
+
 
     //creating i icon for adding new node here there is no need to put delete icon since root node cant be deleted
     var ObjI=document.createElement("i");
 
     //adding class to i element
-    ObjI.setAttribute("class","fa fa-plus");
+    ObjI.setAttribute("class","fa fa-plus addNode");
 
     //setting click event to add new node
     ObjI.setAttribute("onclick","createNode("+0+")");
@@ -34,7 +38,9 @@ function init(element){
     mydivheader.innerHTML="Root Id"+":"+id;
     myDiv.appendChild(mydivheader);
     mainDV.appendChild(myDiv);
-    myDiv.appendChild(ObjI);
+    /*  myDiv.appendChild(ObjI);*/
+    hovericon.appendChild(ObjI);
+    myDiv.appendChild(hovericon);
     //Calculating number of nodes at the time of loading;
     calculateNumberofnodes();
 }
@@ -42,10 +48,13 @@ function init(element){
 //This method is called to create new Node.
 function createNode(parentNodeId)
 {
+
     ++id;
     var pid=document.getElementById(parentNodeId);
     //it will create new DIV for creating node
     var myDiv = document.createElement("div");
+    var hovericon=document.createElement("DIV");
+    hovericon.setAttribute("class","edit");
 
     //i have set style to new node to appear just beside of root node
     myDiv.style.top=pid.offsetTop+"px";
@@ -65,13 +74,12 @@ function createNode(parentNodeId)
     var ObjI2=document.createElement("i");
 
     //setting class for icon
-    ObjI2.setAttribute("class","fa fa-cut");
+    ObjI2.setAttribute("class","fa fa-trash");
     //here i created one onclick  to delete particular node.
     ObjI2.setAttribute("onclick","deleteNode("+id+")");
 
     //setting margin between + icon and delete icon
     ObjI2.style.marginLeft="15px";
-
     //setting class in mYDiv Object for drag event and adding drag event onmouseover with creating id;
     myDiv.setAttribute("class","myDiv");
     myDiv.setAttribute("onmouseover","dragElement(this)");
@@ -80,7 +88,6 @@ function createNode(parentNodeId)
 
     //creating another div as myHeader inside myDiv;
     var mydivheader = document.createElement("div");
-
     //setting class
     mydivheader.setAttribute("class","mydivheader");
 
@@ -94,9 +101,9 @@ function createNode(parentNodeId)
     myDiv.appendChild(ObjI);
     myDiv.appendChild(mydivheader);
     mainDV.appendChild(myDiv);
-    myDiv.appendChild(ObjI);
-    myDiv.appendChild(ObjI2);
-
+    hovericon.appendChild(ObjI);
+    hovericon.appendChild(ObjI2);
+    myDiv.appendChild(hovericon);
     //creating one div which will be for arrow image for direction on node
     var arrow=document.createElement("DIV");
     //setting id to div
@@ -135,7 +142,7 @@ function createNode(parentNodeId)
 
     //creating i and setting class and onclick event for getting details.
     var ic=document.createElement("i");
-    ic.setAttribute("class","fa fa-info-circle");
+    ic.setAttribute("class","fa fa-circle");
     ic.setAttribute("onclick","getDetails(this)")
     icircle.appendChild(ic);
     line.appendChild(icircle);
@@ -230,17 +237,17 @@ function calculateNumberofnodes()
 function deleteNode(pid)
 {
     alert("Delete Function alled")
-   /* for(var i=0;i<lineInfos.length;i++)
-    {
-        var lineinfp=lineInfos[i];
-        if(lineinfp[0]==pid)
-        {
-            var x=document.getElementById(pid).childNodes;
-            mainDV.removeChild(document.getElementById(pid));
-            mainDV.removeChild(lineinfp[2]);
-            resetIndex(i);
-        }
-    }*/
+    /* for(var i=0;i<lineInfos.length;i++)
+     {
+     var lineinfp=lineInfos[i];
+     if(lineinfp[0]==pid)
+     {
+     var x=document.getElementById(pid).childNodes;
+     mainDV.removeChild(document.getElementById(pid));
+     mainDV.removeChild(lineinfp[2]);
+     resetIndex(i);
+     }
+     }*/
 }
 function resetIndex(index)
 {
