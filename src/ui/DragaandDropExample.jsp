@@ -67,7 +67,7 @@
   #icircle
   {
     position:absolute;
-    top: 150px;
+    top: 50%;
     color: white;
   }
   input
@@ -122,7 +122,8 @@
         var myDiv = document.createElement("div");
         myDiv.setAttribute("onclick","getNodeid(this)");
         myDiv.style.top=pid.offsetTop+"px";
-        myDiv.style.left=pid.offsetLeft+300+"px";
+        myDiv.style.left=pid.offsetLeft+220+"px";
+        myDiv.style.left=pid.offsetLeft+230+"px";
         var ObjI=document.createElement("i");
         var ObjI=document.createElement("i");
         ObjI.setAttribute("class","fa fa-plus")
@@ -342,15 +343,51 @@
           line.style["-ms-transform"] = 'rotate('+ ANG +'deg)';
           line.style["-o-transform"] = 'rotate('+ ANG +'deg)';
           line.style["-transform"] = 'rotate('+ ANG +'180)';
-         /* document.getElementById("gg").innerHTML=line.style.transform;*/
+//          document.getElementById("gg").innerHTML=line.style.transform;
+          var deg = line.style.transform;
+          deg = deg.substring(7,deg.length-4);
+          deg = parseFloat(deg);
+//          if(deg )
+//          document.getElementById("gg").innerHTML=deg + " : "+to.offsetTop + " : "+from.offsetTop;
+
+          var toTop = parseInt(to.offsetTop);
+          var toLeft = parseInt(to.offsetLeft);
+          var fromTop = parseInt(from.offsetTop);
+          var fromLeft = parseInt(from.offsetLeft);
+
+          var childNodes1 = line.childNodes;
+          var childNodes2 =childNodes1[0].childNodes;
+          var imgObj = childNodes2[0];
+         /* document.getElementById("gg").innerHTML = toTop + " : "+fromTop +" = "+ toLeft + " : "+fromLeft ;*/
+          if((toTop < fromTop) || ( toLeft  > fromLeft )){
+
+            var height = line.style.height;
+            var iHeight = parseInt(height.split("px")[0]);
+
+            imgObj.style.transform = "rotate(450deg)";
+            imgObj.style.position = "absolute";
+            imgObj.style.top = (iHeight - 145) + "px";
+            if((toTop > fromTop) && (toLeft > fromLeft)){
+              imgObj.style.transform = "rotate(630deg)";
+              imgObj.style.position = "absolute";
+              imgObj.style.top = "0px";
+            }
+          }
+          else{
+            imgObj.style.transform = "rotate(270deg)";
+            imgObj.style.position = "absolute";
+            imgObj.style.top = "0px";
+
+          }
           line.style.top    = top+'px';
           line.style.left   = left+'px';
           line.style.height = H + 'px';
         }
       }
     </script>
+    <h1 id="gg"></h1>
     <h2  style="color: white"><u>Tree Node Example:</u></h2>
-   <div  style="font-size: 20px;color: white;float: right;margin: 20px;">
+   <div style="font-size: 20px;color: white;float: right;margin: 20px;font-family: boldcalc">
      <span><u>Total Number of  Node is::</u></span>
      <span id="numberofnode"></span>
    </div>
