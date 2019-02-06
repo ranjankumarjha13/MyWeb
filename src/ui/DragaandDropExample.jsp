@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <header>
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script type ="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.5.0/fabric.min.js"></script>
   <script type ="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -19,20 +18,23 @@
   .myDiv {
     position: absolute;
     z-index: 9;
-    background-color: #f1f1f1;
+    /*background-color: #f1f1f1;*/
+    background-color: white;
     text-align: center;
-    border: 1px solid #d3d3d3;
-    border-radius: 4em;;
+    border-radius: 1em;;
+    border: 2px solid black;
+
   }
   .mydivheader {
     padding: 5px;
     cursor: move;
     z-index: 10;
-    background-color: #FFAFA7;
+    /*background-color: rgb(170, 166, 166);;*/
+    background-color: white;
     color: #fff;
     width: 114px;
     height: 114px;
-    border-radius: 4em;;
+    border-radius: 1em;;
   }
   #containerDiv {
     height: 100%;
@@ -40,15 +42,21 @@
     border: 1px solid;
     overflow: scroll;
     position: absolute;
-    cancel: '#myinput';
-    background-color: #5A7A9B;
+    /*background-color: rgba(0,0,0,.65);;*/
     overflow-y: auto;
     overflow-x: auto;
   }
+  .content{
+    margin-top: 35%;;
+    font-size: 20px;;
+    color: maroon;
+  }
+
   #arrow
   {
     position:absolute;
     top: 55px;
+    left: -1px;
   }
   #icircle
   {
@@ -64,32 +72,34 @@
     text-align: center;
     cursor: pointer;
     opacity: 0;
-    transition: .1s ease;
     position: absolute;
     top: 1px;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100%;
     width: 100%;
+    height: 98%;
     opacity: 0;
     transition: 50ms;
-    background-color: #FFAFA7;
-    border-radius: 4em;;
-    transform: rotate(89deg);
+    /*background-color: rgb(170, 166, 166);*/
+    background-color: white;
+    border-radius: 1em;;
+  /*  transform: rotate(89deg);*/
   }
+  .iconDiv{
+    margin-top: 55%;;
+
+  }
+
   .mydivheader:hover .edit
   {
     display: block;
     font-size: 20px;
-    color: white;
+    color: maroon;
     opacity: 1;
   }
-  .hovericon{
-    border: 1px solid black;
-  }
   .rotate{
-    transform: rotate(271deg);
+    /*transform: rotate(271deg);*/
   }
 </style>
 <body onload="init(this)">
@@ -98,7 +108,7 @@
     <div id="arrow" ></div>
     <div id="icircle"></div>
   </div>
-  <h2  style="color: white"><u>Tree Node Example:</u></h2>
+  <h2  style="color: black"><u>Tree Node Example:</u></h2>
 </div>
 </body>
 <script src="res/scripts/tree.js"></script>

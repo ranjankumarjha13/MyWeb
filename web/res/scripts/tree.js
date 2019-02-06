@@ -6,17 +6,20 @@ var inital;
 var final;
 var mainDV = document.getElementById("containerDiv");
 var id=0;
+var myDiv;
 var myObj = {
     "id":01,
     "Companyname":"Focus",
-    "employee":[ "TL 1", "Tl2", "TL3" ],
+    "employee":[ "TL 1", "Tl2", "TL3" ,"TL4","TL5","TL6","TL7"],
     "Tl":["Ranjan","Ranjan","Tapas","Mayur","YYY","XXX","Abc","ZZZ"],
-    "developer":["Developer1","Developer2","Developer3","Developer4"]
+    "developer":["Developer1","Developer2","Developer3","Developer4"],
 };
 //This function will be called on loading the page and it will create default rooot.
 function init(element){
     //creating div for deafult node.
-    var myDiv = document.createElement("div");
+    myDiv = document.createElement("div");
+    myDiv.setAttribute("data-toggle","tooltip");
+    myDiv.setAttribute("title","This is Root Node"+" "+"id is:-"+"  "+id);
     //creating div for icon which will apeare on hover
     var hovericon=document.createElement("DIV");
     //creating class for hovericon div to apply css and style
@@ -32,7 +35,11 @@ function init(element){
     myDiv.setAttribute("id",+id);
     myDiv.setAttribute("onmouseover","dragElement(this)");
     var mydivheader = document.createElement("div");
-    mydivheader.innerHTML=myObj.Companyname;
+    var contentDiv=document.createElement("DIV");
+    contentDiv.setAttribute("class","content");
+    //mydivheader.innerHTML="<u>"+myObj.Companyname+"</u>"+"<br>"+"(Root Node)"+"<br>"+"Node id:-"+id;
+    contentDiv.innerHTML=myObj.Companyname;
+    mydivheader.appendChild(contentDiv);
     mydivheader.setAttribute("class","mydivheader");
     myDiv.appendChild(mydivheader);
     mainDV.appendChild(myDiv);
@@ -46,9 +53,16 @@ function createNode(parentNodeId)
     ++id;
     var pid=document.getElementById(parentNodeId);
     //creating div for creating nw node
-    var myDiv = document.createElement("div");
+     myDiv = document.createElement("div");
+    //setting attribute for toltip
+    myDiv.setAttribute("data-toggle","tooltip");
+    //setting tootip message
+    myDiv.setAttribute("title","Node Id is:-"+" "+id);
     //creating div for hover icon which will appear on hover
     var hovericon=document.createElement("DIV");
+    var iconDiv=document.createElement("DIV");
+    iconDiv.setAttribute("class","iconDiv");
+    //setting hovericon class to apply css
     hovericon.setAttribute("class","hovericon");
     hovericon.setAttribute("class","edit");
     myDiv.style.top=pid.offsetTop+"px";
@@ -68,14 +82,18 @@ function createNode(parentNodeId)
     ObjI2.setAttribute("title","Delete Node");
     ObjI2.setAttribute("class","fa fa-trash rotate");
     ObjI2.setAttribute("onclick","deleteNode("+id+")");
-    ObjI2.style.margin="20%";
+    ObjI2.style.margin="18%";
     myDiv.setAttribute("class","myDiv");
     myDiv.setAttribute("onmouseover","dragElement(this)");
     myDiv.setAttribute("id",+id);
     myDiv.setAttribute("onmouseover","dragElement(this)");
     var mydivheader = document.createElement("div");
     mydivheader.setAttribute("class","mydivheader");
-    mydivheader.innerHTML=myObj.Tl[id];;
+    var contentDiv=document.createElement("DIV");
+    contentDiv.setAttribute("class","content");
+    //mydivheader.innerHTML=myObj.Tl[id]+"<br>" +"Node id:-"+id;
+    contentDiv.innerHTML=myObj.Tl[id];
+
     myDiv.appendChild(mydivheader);
     mainDV.appendChild(myDiv);
     myDiv.appendChild(ObjI);
@@ -83,9 +101,11 @@ function createNode(parentNodeId)
     mainDV.appendChild(myDiv);
     iSpan1.appendChild(ObjI);
     ispan2.appendChild(ObjI2);
-    hovericon.appendChild(ispan2);
-    hovericon.appendChild(iSpan1);
+    iconDiv.appendChild(ispan2);
+    iconDiv.appendChild(iSpan1);
+    hovericon.appendChild(iconDiv)
     mydivheader.appendChild(hovericon);
+    mydivheader.appendChild(contentDiv)
     var arrow=document.createElement("DIV");
     arrow.setAttribute("id","arrow");
     var img = document.createElement("IMG");
@@ -157,7 +177,7 @@ function adjustLine(){
         var lineInfo = lineInfos[i];
         var from = document.getElementById(lineInfo[0]);
         var to = document.getElementById(lineInfo[1]);
-        var line = lineInfo[2];
+            var line = lineInfo[2];
         document.getElementById("containerDiv").appendChild(line);
         var fT = from.offsetTop  + from.offsetHeight/2;
         var tT = to.offsetTop    + to.offsetHeight/2;
@@ -186,38 +206,45 @@ function adjustLine(){
         line.style["-ms-transform"] = 'rotate('+ ANG +'deg)';
         line.style["-o-transform"] = 'rotate('+ ANG +'deg)';
         line.style["-transform"] = 'rotate('+ ANG +'180)';
-//          document.getElementById("gg").innerHTML=line.style.transform;
-        var deg = line.style.transform;
-        deg = deg.substring(7,deg.length-4);
-        deg = parseFloat(deg);
-//          if(deg )
-//          document.getElementById("gg").innerHTML=deg + " : "+to.offsetTop + " : "+from.offsetTop;
         var toTop = parseInt(to.offsetTop);
         var toLeft = parseInt(to.offsetLeft);
         var fromTop = parseInt(from.offsetTop);
         var fromLeft = parseInt(from.offsetLeft);
-
         var childNodes1 = line.childNodes;
         var childNodes2 =childNodes1[0].childNodes;
         var imgObj = childNodes2[0];
-        /* document.getElementById("gg").innerHTML = toTop + " : "+fromTop +" = "+ toLeft + " : "+fromLeft ;*/
+        //document.getElementById("gg").innerHTML = "toTop"+"  "+toTop + " fromTop "+fromTop +"toLeft"+ toLeft + "fromLeft"+fromLeft ;
         if((toTop < fromTop) || ( toLeft  > fromLeft )){
             var height = line.style.height;
             var iHeight = parseInt(height.split("px")[0]);
             imgObj.style.transform = "rotate(450deg)";
             imgObj.style.position = "absolute";
-            imgObj.style.top = (iHeight - 145) + "px";
             if((toTop > fromTop) && (toLeft > fromLeft)){
                 imgObj.style.transform = "rotate(630deg)";
                 imgObj.style.position = "absolute";
                 imgObj.style.top = "0px";
+            }
+            if((fromTop<fromLeft))
+            {
+                var iHeight = parseInt(height.split("px")[0]);
+                imgObj.style.position = "absolute";
+                imgObj.style.top = iHeight-155 +"px";
+            }
+            if((fromTop>fromLeft))
+            {
+                var iHeight = parseInt(height.split("px")[0]);
+                imgObj.style.position = "absolute";
+                imgObj.style.top = iHeight-155 +"px";
             }
         }
         else{
             imgObj.style.transform = "rotate(270deg)";
             imgObj.style.position = "absolute";
             imgObj.style.top = "0px";
-
+        }
+        if(toTop>fromTop)
+        {
+            imgObj.style.top = "15px";
         }
         line.style.top    = top+'px';
         line.style.left   = left+'px';
@@ -228,8 +255,8 @@ function adjustLine(){
 function deleteNode(pid)
 {
     alert("Delete Function called");
-    console.log("Delete is called")
-  /*  alert(pid)
+  /*  console.log("Delete is called")
+    alert(pid)
     for(var i=0;i<lineInfos.length;i++) {
         var lineinfp = lineInfos[i];
         if (lineinfp[0] == pid) {
@@ -238,7 +265,6 @@ function deleteNode(pid)
             resetIndex(i);
         }
     }*/
-
 }
 function resetIndex(index)
 {
