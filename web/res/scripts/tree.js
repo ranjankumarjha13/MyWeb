@@ -6,18 +6,18 @@ var inital;
 var final;
 var mainDV = document.getElementById("containerDiv");
 var id=0;
-var myDiv;
 var myObj = {
     "id":01,
     "Companyname":"Focus",
     "employee":[ "TL 1", "Tl2", "TL3" ,"TL4","TL5","TL6","TL7"],
-    "Tl":["Ranjan","Ranjan","Tapas","Mayur","YYY","XXX","Abc","ZZZ"],
+    "Tl":["Ranjan","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q"],
     "developer":["Developer1","Developer2","Developer3","Developer4"],
 };
+
 //This function will be called on loading the page and it will create default rooot.
 function init(element){
     //creating div for deafult node.
-    myDiv = document.createElement("div");
+    var myDiv = document.createElement("div");
     myDiv.setAttribute("data-toggle","tooltip");
     myDiv.setAttribute("title","This is Root Node"+" "+"id is:-"+"  "+id);
     //creating div for icon which will apeare on hover
@@ -27,7 +27,7 @@ function init(element){
     //creating i element for + option to create next node and seting class to apply css
     var ObjI=document.createElement("i");
     ObjI.setAttribute("data-toggle","tooltip");
-    ObjI.setAttribute("title","Add Node");
+    ObjI.setAttribute("title","Click to Add Node");
     ObjI.style.margin="55px";
     ObjI.setAttribute("class","fa fa-plus")
     ObjI.setAttribute("onclick","createNode("+0+")")
@@ -37,7 +37,6 @@ function init(element){
     var mydivheader = document.createElement("div");
     var contentDiv=document.createElement("DIV");
     contentDiv.setAttribute("class","content");
-    //mydivheader.innerHTML="<u>"+myObj.Companyname+"</u>"+"<br>"+"(Root Node)"+"<br>"+"Node id:-"+id;
     contentDiv.innerHTML=myObj.Companyname;
     mydivheader.appendChild(contentDiv);
     mydivheader.setAttribute("class","mydivheader");
@@ -53,7 +52,7 @@ function createNode(parentNodeId)
     ++id;
     var pid=document.getElementById(parentNodeId);
     //creating div for creating nw node
-     myDiv = document.createElement("div");
+    var myDiv = document.createElement("div");
     //setting attribute for toltip
     myDiv.setAttribute("data-toggle","tooltip");
     //setting tootip message
@@ -73,14 +72,18 @@ function createNode(parentNodeId)
     var iSpan1=document.createElement("SPAN");
     var ispan2=document.createElement("SPAN");
     ObjI.setAttribute("class","fa fa-plus ");
+    //setting attribute to show tooltip using jquery.
     ObjI.setAttribute("data-toggle","tooltip");
-    ObjI.setAttribute("title","Add Node");
+    //setting title for + icon it will appear once we will hover on the + icon;
+    ObjI.setAttribute("title","Click to Add Node");
     ObjI.style.margin="18%";
     ObjI.setAttribute("onclick","createNode("+id+")")
     var ObjI2=document.createElement("i");
+    //setting attribute to show tooltip using jquery
     ObjI2.setAttribute("data-toggle","tooltip");
-    ObjI2.setAttribute("title","Delete Node");
-    ObjI2.setAttribute("class","fa fa-trash rotate");
+    //setting title for delete icon it will appear once we will hover on the + icon;
+    ObjI2.setAttribute("title","Click to  Delete Node");
+    ObjI2.setAttribute("class","fa fa-trash");
     ObjI2.setAttribute("onclick","deleteNode("+id+")");
     ObjI2.style.margin="18%";
     myDiv.setAttribute("class","myDiv");
@@ -91,9 +94,7 @@ function createNode(parentNodeId)
     mydivheader.setAttribute("class","mydivheader");
     var contentDiv=document.createElement("DIV");
     contentDiv.setAttribute("class","content");
-    //mydivheader.innerHTML=myObj.Tl[id]+"<br>" +"Node id:-"+id;
     contentDiv.innerHTML=myObj.Tl[id];
-
     myDiv.appendChild(mydivheader);
     mainDV.appendChild(myDiv);
     myDiv.appendChild(ObjI);
@@ -103,7 +104,7 @@ function createNode(parentNodeId)
     ispan2.appendChild(ObjI2);
     iconDiv.appendChild(ispan2);
     iconDiv.appendChild(iSpan1);
-    hovericon.appendChild(iconDiv)
+    hovericon.appendChild(iconDiv);
     mydivheader.appendChild(hovericon);
     mydivheader.appendChild(contentDiv)
     var arrow=document.createElement("DIV");
@@ -177,7 +178,7 @@ function adjustLine(){
         var lineInfo = lineInfos[i];
         var from = document.getElementById(lineInfo[0]);
         var to = document.getElementById(lineInfo[1]);
-            var line = lineInfo[2];
+        var line = lineInfo[2];
         document.getElementById("containerDiv").appendChild(line);
         var fT = from.offsetTop  + from.offsetHeight/2;
         var tT = to.offsetTop    + to.offsetHeight/2;
@@ -254,7 +255,6 @@ function adjustLine(){
 //This function is responsible to delete particular node .
 function deleteNode(pid)
 {
-    alert("Delete Function called");
   /*  console.log("Delete is called")
     alert(pid)
     for(var i=0;i<lineInfos.length;i++) {

@@ -18,22 +18,19 @@
   .myDiv {
     position: absolute;
     z-index: 9;
-    /*background-color: #f1f1f1;*/
     background-color: white;
     text-align: center;
     border-radius: 1em;;
-    border: 2px solid black;
-
+    border: 1px solid black;
   }
   .mydivheader {
     padding: 5px;
     cursor: move;
     z-index: 10;
-    /*background-color: rgb(170, 166, 166);;*/
     background-color: white;
     color: #fff;
     width: 114px;
-    height: 114px;
+    height: 108px;
     border-radius: 1em;;
   }
   #containerDiv {
@@ -42,7 +39,6 @@
     border: 1px solid;
     overflow: scroll;
     position: absolute;
-    /*background-color: rgba(0,0,0,.65);;*/
     overflow-y: auto;
     overflow-x: auto;
   }
@@ -50,8 +46,8 @@
     margin-top: 35%;;
     font-size: 20px;;
     color: maroon;
+    font-family: bold;
   }
-
   #arrow
   {
     position:absolute;
@@ -79,27 +75,20 @@
     right: 0;
     width: 100%;
     height: 98%;
-    opacity: 0;
+    opacity: 1;
     transition: 50ms;
-    /*background-color: rgb(170, 166, 166);*/
     background-color: white;
     border-radius: 1em;;
-  /*  transform: rotate(89deg);*/
   }
   .iconDiv{
     margin-top: 55%;;
-
   }
-
   .mydivheader:hover .edit
   {
     display: block;
     font-size: 20px;
     color: maroon;
     opacity: 1;
-  }
-  .rotate{
-    /*transform: rotate(271deg);*/
   }
 </style>
 <body onload="init(this)">
