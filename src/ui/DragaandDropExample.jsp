@@ -2,6 +2,77 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <!DOCTYPE html>
+<%--<html>
+<style>
+  .animatedDiv{
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+    border-radius: 1em;
+    transition: 1s;
+    margin: 20px;
+  }
+  #mainDiv
+  {
+    margin: 30px;
+    width: 100%;
+    height: 100%;;
+    position: absolute;
+  }
+  .faclass
+  {
+  margin: 10%;
+    cursor: pointer;
+  }
+</style>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script>
+    function init()
+    {
+      var x=document.createElement("DIV");
+      var objI=document.createElement("i");
+      objI.setAttribute("class","fa fa-plus");
+      objI.setAttribute("onclick","createNode()");
+      var ObjIdiv=document.createElement("DIV");
+      ObjIdiv.setAttribute("class","faclass");
+      ObjIdiv.appendChild(objI);
+      x.setAttribute("class","animatedDiv");
+      x.setAttribute("onmouseover","create(this)");
+      x.appendChild(ObjIdiv);
+      document.body.appendChild(x);
+    }
+    function createNode()
+    {
+      var x=document.createElement("DIV");
+      var objI=document.createElement("i");
+      objI.setAttribute("class","fa fa-plus");
+      objI.setAttribute("onclick","createNode()");
+      var ObjIdiv=document.createElement("DIV");
+      ObjIdiv.setAttribute("class","faclass");
+      ObjIdiv.appendChild(objI);
+      x.setAttribute("class","animatedDiv");
+      x.setAttribute("onmouseover","create(this)");
+      x.appendChild(ObjIdiv);
+      document.body.appendChild(x);
+    }
+
+  /*  $(document).ready(function(){
+      $("button").click(function(){
+        $("div").animate({left: '500px'});
+      });
+    });*/
+  </script>
+</head>
+<body onload="init()">
+
+<div id="mainDiv">
+
+</div>
+
+</body>
+</html>--%>
 <html>
 <header>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,24 +85,38 @@
     width:1px;
     background-color:black;
     text-align: center;
+    color: black;
   }
   .myDiv {
     position: absolute;
     z-index: 9;
     background-color: white;
     text-align: center;
-    border-radius: 1em;;
     border: 1px solid black;
+    top: 40%;
+    left: 100px;
+    width: 120px;
+    height: 120px;
   }
-  .mydivheader {
+
+  .deleteTreeNode{
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+  }
+  .addTreeNode{
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+  }
+  /*.mydivheader {
     padding: 5px;
     cursor: move;
     z-index: 10;
     background-color: white;
-    color: #fff;
     width: 114px;
     height: 108px;
-    border-radius: 1em;;
+    cursor: pointer;
   }
   #containerDiv {
     height: 100%;
@@ -41,13 +126,22 @@
     position: absolute;
     overflow-y: auto;
     overflow-x: auto;
+
   }
   .content{
-    margin-top: 35%;;
+    margin-top: 36%;;
     font-size: 20px;;
-    color: maroon;
+    color: #800800;
     font-family: bold;
   }
+  .initcontent{
+    margin-top: 31%;;
+    font-size: 20px;;
+    color: #800800;
+    font-family: bold;
+    color: #800800;
+  }*/
+
   #arrow
   {
     position:absolute;
@@ -61,6 +155,14 @@
     color: black;
     cursor: pointer;
     font-size: 15px;;
+  }
+  input
+  {
+    border: none;
+    width: 80%;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
   }
   .edit
   {
@@ -80,21 +182,31 @@
     background-color: white;
     border-radius: 1em;;
   }
-  .iconDiv{
-    margin-top: 55%;;
-  }
-  .mydivheader:hover .edit
+  .mydivheader:hover .edi
   {
     display: block;
     font-size: 20px;
-    color: maroon;
+    color: #800800;
     opacity: 1;
   }
+  .iconDiv
+  {
+    color: #800800;
+    font-family: bold;
+    font-size: 20px;;
+  }
+  .initicon{
+    margin-top: -16px;
+    margin-left: -37px;
+  }
 </style>
-<body onload="init(this)">
+<body onload="load();">
+
+<h2 id="ii"></h2>
 <div id="containerDiv">
   <div class="line">
-    <div id="arrow" ></div>
+    <div id="arrow" >
+    </div>
     <div id="icircle"></div>
   </div>
   <h2  style="color: black"><u>Tree Node Example:</u></h2>

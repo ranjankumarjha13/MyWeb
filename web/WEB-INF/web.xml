@@ -14,7 +14,4 @@
     <welcome-file-list>
         <welcome-file>/WEB-INF/jsp/DragaandDropExample.jsp</welcome-file>
     </welcome-file-list>
-    <!--E:\MyWebApplication\src\ui\TabExample.jsp-->
-  <!--  E:\MyWebApplication\src\ui\stable.jsp-->
-     <!--   E:\MyWebApplication\src\ui\DragaandDropExample.jsp-->
         </web-app>
