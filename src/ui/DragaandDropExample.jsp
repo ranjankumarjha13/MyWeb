@@ -202,7 +202,7 @@
 </style>
 <body onload="load();">
 
-<h2 id="ii"></h2>
+<h2 style="height: 50px" id="ii"></h2>
 <div id="containerDiv">
   <div class="line">
     <div id="arrow" >
