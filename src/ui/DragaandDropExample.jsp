@@ -104,10 +104,10 @@
     bottom: 15px;
     right: 20px;
   }
-  .addTreeNode{
+  .addtreenode{
     position: absolute;
-    bottom: 15px;
-    left: 20px;
+    top: 90px;
+    left: 18px;
   }
   /*.mydivheader {
     padding: 5px;

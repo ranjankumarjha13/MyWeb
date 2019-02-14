@@ -75,23 +75,11 @@ function init(nodecontent,nodeid,nodePrentId) {
     objI2.setAttribute("title", "Click to Delete Node");
     objI2.setAttribute("onclick", "deleteNode(" + id + ")");
     objI1.setAttribute("title", "Click to Add Node");
-    objI1.setAttribute("class", "fa fa-plus deleteTreeNode")
+    objI1.setAttribute("class", "fa fa-plus addtreenode")
     objI1.setAttribute("onclick", "createNode('node_" + id + "')")
     myDiv.setAttribute("class", "myDiv");
     myDiv.setAttribute("id", nodeid);
     myDiv.setAttribute("onmouseover", "dragElement(this)");
-    /*var mydivheader = document.createElement("div");
-     var contentDiv = document.createElement("DIV");
-     var iconDiv = document.createElement("DIV");
-     iconDiv.setAttribute("class", "initicon");
-     iconDiv.appendChild(ObjI);
-     iconDiv.appendChild(objI2);
-     contentDiv.setAttribute("class", "initcontent");
-     contentDiv.innerHTML = nodecontent
-     mydivheader.appendChild(contentDiv);
-     contentDiv.appendChild(iconDiv);
-     mydivheader.setAttribute("class", "mydivheader");
-     myDiv.appendChild(mydivheader);*/
     myDiv.innerText = nodecontent;
     myDiv.appendChild(objI1);
     myDiv.appendChild(objI2);
@@ -183,6 +171,7 @@ function dragElement(elmnt) {
     function elementDrag(e) {
         e = e || window.event;
         e.preventDefault();
+
         pos1 = pos3 - e.clientX;
         pos2 = pos4 - e.clientY;
         pos3 = e.clientX;
@@ -238,6 +227,7 @@ function adjustLine(nodePrentId,nodeid,isCreateLine){
      line.appendChild(icircle);
      icircle.style.marginLeft="-5px";
      line.setAttribute("class","line");
+
      document.getElementById("containerDiv").appendChild(line);
 
      var fT = from.offsetTop  + from.offsetHeight/2;
