@@ -278,6 +278,7 @@
           var iHeight = parseInt(height.split("px")[0]);
           if((fromTop>fromLeft))
           {
+            imgObj.style.margin = "4";
             imgObj.style.position = "absolute";
             imgObj.style.top = "50px";
             imgObj.style.left = "-13px";
@@ -285,17 +286,20 @@
           }
           if((fromTop<fromLeft))
           {
+            imgObj.style.margin = "3";
             var iHeight = parseInt(height.split("px")[0]);
             imgObj.style.position = "absolute";
             imgObj.style.top = iHeight-100 +"px";
           }
           if((toTop > fromTop) && (toLeft > fromLeft)){
+            imgObj.style.margin = "2";
             imgObj.style.transform = "rotate(630deg)";
             imgObj.style.position = "absolute";
             imgObj.style.top = "175px";
           }
           if(toTop>fromTop)
           {
+            imgObj.style.margin = "1";
             imgObj.style.position = "absolute";
             imgObj.style.top = iHeight-90 +"px";
             imgObj.style.left = "-14px";
@@ -303,10 +307,16 @@
         }
          if(toTop<toLeft)
           {
-            imgObj.style.transform = "rotate(700)";
+            imgObj.style.margin = "0";
+            imgObj.style.transform = "rotate(265deg)";
             imgObj.style.position = "absolute";
+            imgObj.style.left = "-14px";
+            imgObj.style.top = "65px";
           }
+        if(toTop<toLeft && fromTop<fromLeft)
+        {
 
+        }
           htreeLine.style.top    = top+'px';
           htreeLine.style.left   = left+'px';
           htreeLine.style.height = H + 'px';
@@ -318,6 +328,7 @@
 <body onload="load();">
 <div  id="HtreeDiv">
   <h1 id="gg" align="center"></h1>
+
 </div>
 </body>
 </html>
