@@ -50,6 +50,7 @@
   {
     left: 3px;
   }
+
 </style>
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -311,12 +312,23 @@
             imgObj.style.transform = "rotate(265deg)";
             imgObj.style.position = "absolute";
             imgObj.style.left = "-14px";
-            imgObj.style.top = "65px";
+            imgObj.style.top = "53px";
           }
-        if(toTop<toLeft && fromTop<fromLeft)
+        if(toTop>fromTop && toLeft>fromLeft)
         {
+          imgObj.style.transform = "rotate(453deg)";
+          imgObj.style.top = iHeight-100 +"px";
+          imgObj.style.left = "-14px";
+          imgObj.style.position = "absolute";
 
         }
+          if(toTop<fromTop && toLeft<fromLeft)
+          {
+            imgObj.style.transform = "rotate(995deg)";
+            imgObj.style.left = "-16px";
+            imgObj.style.top = iHeight-200 +"px";
+            imgObj.style.position = "absolute";
+          }
           htreeLine.style.top    = top+'px';
           htreeLine.style.left   = left+'px';
           htreeLine.style.height = H + 'px';
