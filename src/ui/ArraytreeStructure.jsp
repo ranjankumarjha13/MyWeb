@@ -50,12 +50,19 @@
   {
     left: 3px;
   }
+  #HtreeDiv
+  {
 
+    height: 600px;
+    width: 650px;
+    border: 1px solid;
+  }
 </style>
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Tree Structure</title>
   <script>
+    var HtreenodeDiv
     var mainDiv=null;
     var lineInfos=[];
     var JSONOBjectLEngth;
@@ -96,10 +103,9 @@
         "YPosition":"200"
       }
     ];
-
   function init(objJson)
   {
-    var HtreenodeDiv=document.createElement("DIV");
+     HtreenodeDiv=document.createElement("DIV");
     var ObjPlusicon=document.createElement("i");
     var objDeleteIcon=document.createElement("i");
     ObjPlusicon.setAttribute("class","fa fa-plus Haddtree");
@@ -128,7 +134,7 @@
   }
     function createNode(obj)
     {
-     /* var nodename=window.prompt("Enter Node name","");
+      var nodename=window.prompt("Enter Node name","");
       JSONOBjectLEngth++;
       var pid=obj.parentNode;
       var HtreenodeDiv=document.createElement("DIV");
@@ -154,11 +160,14 @@
       mainDiv.appendChild(htreeLine);
       var lineinfo=[pid.id,JSONOBjectLEngth,htreeLine];
       lineInfos[lineInfos.length]=lineinfo;
-      adjustLine();*/
+      adjustLine();
+        HtreenodeDiv.style.left=(mainDiv.offsetWidth-HtreenodeDiv.offsetWidth)+"px";
+        closeDragElement();
+
     }
     function createLine()
     {
-      var htreeLine = document.createElement("DIV");
+      htreeLine = document.createElement("DIV");
       var arrow=document.createElement("DIV");
       arrow.setAttribute("id","arrow");
       var img = document.createElement("IMG");
@@ -186,11 +195,9 @@
       for(var i=0;i<arrayJSON.length;i++)
       {
         init(arrayJSON[i]);
-
       }
       adjustLine();
       JSONOBjectLEngth=arrayJSON.length;
-
     }
     function dragElement(elmnt)
     {
@@ -216,19 +223,45 @@
         elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
         adjustLine();
+        var divLEft=elmnt.offsetLeft;
+        var divtop=elmnt.offsetTop;
+        var mw=mainDiv.offsetWidth;
+        var nw=HtreenodeDiv.offsetWidth;
+        var mh=mainDiv.offsetHeight;
+        var nh=HtreenodeDiv.offsetHeight;
+        if(divLEft<0)
+        {
+          elmnt.style.left="0px";
+          closeDragElement();
+        }
+        if(divtop<0)
+        {
+          elmnt.style.top="0px";
+          closeDragElement();
+        }
+
+        if(elmnt.offsetLeft>(mainDiv.offsetWidth-HtreenodeDiv.offsetWidth))
+        {
+          elmnt.style.left=(mainDiv.offsetWidth-HtreenodeDiv.offsetWidth)+"px";
+          closeDragElement();
+        }
+        if(elmnt.offsetTop>(mainDiv.offsetHeight-HtreenodeDiv.offsetHeight))
+        {
+          elmnt.style.top=(mainDiv.offsetHeight-HtreenodeDiv.offsetHeight)+"px";
+          closeDragElement();
+        }
       }
       function closeDragElement() {
         document.onmouseup = null;
         document.onmousemove = null;
       }
+
     }
     function getDetails(obj)
     {
       var pnode=obj.parentNode;
       var x=pnode.parentNode;
       var y= x.parentNode;
-     console.log("GetDetails() called")
-
     }
     function adjustLine(){
       var htreeLine,from,to;
@@ -274,7 +307,7 @@
           var childNodes1 = htreeLine.childNodes;
           var childNodes2 =childNodes1[0].childNodes;
           var imgObj = childNodes2[0];
-          document.getElementById("gg").innerHTML = "toTop"+"  "+toTop +"   "+ " fromTop "+fromTop +"toLeft"+"  "+ toLeft + "fromLeft"+fromLeft ;
+          //document.getElementById("gg").innerHTML = "toTop"+"  "+toTop +"   "+ " fromTop "+fromTop +"toLeft"+"  "+ toLeft + "fromLeft"+fromLeft ;
           var height = htreeLine.style.height;
           var iHeight = parseInt(height.split("px")[0]);
           if((fromTop>fromLeft))
@@ -320,7 +353,6 @@
           imgObj.style.top = iHeight-100 +"px";
           imgObj.style.left = "-14px";
           imgObj.style.position = "absolute";
-
         }
           if(toTop<fromTop && toLeft<fromLeft)
           {
@@ -339,7 +371,9 @@
 </head>
 <body onload="load();">
 <div  id="HtreeDiv">
+  <h1 id="hh" align="center"></h1>
   <h1 id="gg" align="center"></h1>
+
 
 </div>
 </body>
