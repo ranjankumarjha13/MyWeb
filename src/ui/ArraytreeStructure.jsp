@@ -165,6 +165,84 @@
         closeDragElement();
 
     }
+
+
+
+
+
+
+
+
+    /*this.hasChildren= function (currentIDindex) {
+
+     for(var i=currentIDindex;i<arrayJSON.length;i++)
+     {
+     var objjSon=arrayJSON[i];
+     var nextParentId= objjSon.parentID;
+     if(nextParentId==currentIDindex)
+     {
+     return true;
+     }
+     }
+     return false;
+     }
+
+     this.flagCtl=false;
+     this.deleteNode=function(currentIDindex)
+     {
+     if(this.flagCtl==false)
+     this.flagCtl=this.hasChildren(currentIDindex);
+     if(this.flagCtl){
+     for(var i=currentIDindex;i<arrayJSON.length;i++)
+     {
+     var objjSon=arrayJSON[i];
+     var nextParentId= objjSon.parentID;
+     if(nextParentId==currentIDindex)
+     {
+     mainDiv.removeChild(document.getElementById("node_"+objjSon.nodeID));
+     this.deleteNode(objjSon.nodeID);
+     }
+     }
+     }
+     else{
+     mainDiv.removeChild(document.getElementById("node_"+currentIDindex));
+     }
+     }
+
+    this.deleteNode=function(currentIDindex)
+    {
+      for(var i=currentIDindex;i<arrayJSON.length;i++)
+      {
+        var objjSon=arrayJSON[i];
+        var nextParentId= objjSon.parentID;
+        if(nextParentId==currentIDindex)
+        {
+          this.deleteNode(objjSon.nodeID);
+        }
+
+      }
+      mainDiv.removeChild(document.getElementById("node_"+currentIDindex));
+    }
+
+
+    this.deleteLine=function(parent,child)
+    {
+      /!* parent=parent.split("_")[1];
+       child=child.split("_")[1];*!/
+      mainDiv.removeChild(document.getElementById("line_"+parent+"_"+child))
+    }
+
+*/
+
+
+
+
+
+
+
+
+
+
     function createLine()
     {
       htreeLine = document.createElement("DIV");
